@@ -11,7 +11,7 @@ class ProjectController extends Controller
         return view('customer.elements.project.index');
     }
 
-    public function show()
+    public function detail()
     {
         return view('customer.elements.project.show');
     }

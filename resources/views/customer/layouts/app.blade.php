@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title') - Công ty Cổ phần Xây dựng và Thương mại Glasshouse</title>
     <!-- Style-Css -->
-    <link rel="stylesheet" href="{{ asset('customer/css/style-glasshouse.css') }}">
     <!--  Icon-Tab-Chrome -->
     <link rel="shortcut icon" href="{{ asset('customer/img-glass-house/img-logo/logo-khong-nen-GH.png') }}" type="image/x-icon">
     <!-- Font -->
@@ -30,14 +29,14 @@
 <body>
 <div class="navbar">
     <div class="logo">
-        <a href="{{'/'}}"><img src="{{ asset('customer/img-glass-house/img-logo/logo.png') }}" width="250px"></a>
+        <a href="{{'/'}}"><img src="{{ asset('customer/images/img-logo/logo.png') }}" width="250px"></a>
     </div>
     <nav>
         <ul id="nav" style="padding-top: 0px;">
-            <li><a href="../html/index.html"><i class="fa fa-home" style="font-size: 18px;"> </i> Trang chủ</a></li>
-            <li><a href="introduce.html">GIỚI THIỆU</a></li>
+            <li><a href="{{ route('customer.home.index') }}"><i class="fa fa-home" style="font-size: 18px;"> </i> Trang chủ</a></li>
+            <li><a href="{{ route('customer.intro.index') }}">GIỚI THIỆU</a></li>
             <li>
-                <a href="../html/product.html">SẢN PHẨM <i class="fa fa-angle-down"></i> </a>
+                <a href="{{ route('customer.product.index') }}">SẢN PHẨM <i class="fa fa-angle-down"></i> </a>
                 <ul class="subnav" style="border-radius: 5px;">
                     <li>
                         <a href="#">Cửa đi<i class="fa fa-angle-down"></i></a>
@@ -79,7 +78,7 @@
                 </ul>
             </li>
             <li>
-                <a href="project.html ">CÔNG TRÌNH <i class="fa fa-angle-down "></i></a>
+                <a href="{{ route('customer.project.index') }} ">CÔNG TRÌNH <i class="fa fa-angle-down "></i></a>
                 <ul class="subnav ">
                     <li><a href="../html/project-BT.html ">Biệt thự</a></li>
                     <li><a href="../html/project-NP.html ">Nhà phố</a></li>
@@ -87,10 +86,13 @@
                     <li><a href="../html/project-CTK.html ">Dự án</a></li>
                 </ul>
             </li>
-            <li><a href="../html/contact.html ">LIÊN HỆ</a></li>
-            <li><a href="hiring.html ">tuyển dụng</a></li>
+            <li><a href="{{ route('customer.contact.index') }} ">LIÊN HỆ</a></li>
+{{--            <li><a href="hiring.html ">tuyển dụng</a></li>--}}
             <li>
-                <a href="cart.html" class="button-cart"><i class="fa fa-shopping-cart " style="font-size: 16px; "></i></a>
+                <a href="{{ route('customer.cart.index    ') }}" class="button-cart"><i class="fa fa-shopping-cart " style="font-size: 16px; "></i></a>
+            </li>
+            <li>
+                <a href="{{ route('customer.formLogin') }}"><i class="fa fa-user"></i></a>
             </li>
         </ul>
     </nav>
@@ -114,7 +116,7 @@
     </a>
 </div>
 <div class="chatbox-icon " onclick="showChatbox() " style="cursor: pointer; ">
-    <img src="{{ asset('customer/img-glass-house/img-logo/chat.png') }}" alt=" " style="border-radius: 50%;background-color: #fff; ">
+    <img src="{{ asset('customer/images/img-logo/chat.png') }}" alt=" " style="border-radius: 50%;background-color: #fff; ">
 </div>
 <section class="avenue-messenger " id="chatbox ">
     <div class="menu ">

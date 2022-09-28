@@ -2,28 +2,32 @@
 
 @section('title', 'Trang chủ')
 
+@section('css')
+    <link rel="stylesheet" href="{{ asset('customer/css/style-glasshouse.css') }}">
+@endsection
+
 @section('content')
     <div id="slider" class="carousel slide" data-ride="carousel">
         <!-- The slideshow -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../img-glass-house/img-slide-banner-1.jpg" alt=" " width="100% " height="500 ">
+                <img src="{{ asset('customer/images/img-slide-banner-1.jpg') }}" alt=" " width="100% " height="500 ">
                 <div class="slider-content">
                     <h3>glasshouse</h3>
                     <h5>
                         Đưa không gian Châu Âu đến với ngôi nhà của bạn
                     </h5>
-                    <a class="button" href="../html/product.html">Xem thêm </a>
+                    <a class="button" href="{{ route('customer.product.index') }}">Xem thêm </a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../img-glass-house/img-slide-banner-2.jpg" alt=" " width="100% " height="500 ">
+                <img src="{{ asset('customer/images/img-slide-banner-2.jpg') }}" alt=" " width="100% " height="500 ">
                 <div class="slider-content">
                     <h3>glasshouse</h3>
                     <h5>
                         Đưa không gian Châu Âu đến với ngôi nhà của bạn
                     </h5>
-                    <a class="button" href="../html/product.html">Xem Thêm</a>
+                    <a class="button" href="{{ route('customer.product.index') }}">Xem Thêm</a>
                 </div>
             </div>
         </div>
