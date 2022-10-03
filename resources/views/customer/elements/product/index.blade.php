@@ -26,15 +26,15 @@
                                 <a href="" class="category-item__link">Cửa đi</a>
                                 <ul class="category-sub-item">
                                     <li class="category-item">
-                                        <a href="../html/product-CD1C.html" class="category-item__link">Cửa đi một
+                                        <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa đi một
                                             cánh</a>
                                     </li>
                                     <li class="category-item">
-                                        <a href="../html/product-CD1C-fix.html" class="category-item__link">Cửa đi một
+                                        <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa đi một
                                             cánh và Fix</a>
                                     </li>
                                     <li class="category-item">
-                                        <a href="" class="category-item__link">Cửa đi nhiều cánh</a>
+                                        <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa đi nhiều cánh</a>
                                     </li>
                                 </ul>
                             </li>
@@ -42,21 +42,21 @@
                                 <a href="" class="category-item__link">Cửa sổ</a>
                                 <ul class="category-sub-item">
                                     <li class="category-item">
-                                        <a href="" class="category-item__link">Cửa sổ mở hất</a>
+                                        <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa sổ mở hất</a>
                                     </li>
                                     <li class="category-item">
-                                        <a href="" class="category-item__link">Cửa sổ mở quay</a>
+                                        <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa sổ mở quay</a>
                                     </li>
                                     <li class="category-item">
-                                        <a href="" class="category-item__link">Cửa sổ mở lùa</a>
+                                        <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa sổ mở lùa</a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="category-item">
-                                <a href="" class="category-item__link">Cửa lùa</a>
+                                <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa lùa</a>
                             </li>
                             <li class="category-item">
-                                <a href="" class="category-item__link">Cửa xếp gấp</a>
+                                <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa xếp gấp</a>
                             </li>
                         </ul>
 
@@ -101,9 +101,9 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CD1C.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CDMC/CDMC.png " alt=" "
+                                            <img src="{{ asset('customer/images/img-product/CDMC/CDMC.png') }}" alt=" "
                                                  style="background-size: cover; ">
                                         </div>
                                         <div class="product-content ">
@@ -112,9 +112,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CDNC.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CDNC/CDNC-3.png " alt=" ">
+                                            <img src="{{ asset('customer/images/img-product/CDNC/CDNC-3.png') }}" alt=" ">
                                         </div>
                                         <div class="product-content ">
                                             <h4>Cửa đi mở quay nhiều cánh</h4>
@@ -122,9 +122,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CD1C-fix.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CDMC-Fix/img-CDMC-Fix-1.jpg "
+                                            <img src="{{ asset('customer/images/img-product/CDMC-Fix/img-CDMC-Fix-1.jpg') }}"
                                                  alt=" ">
                                         </div>
                                         <div class="product-content ">
@@ -133,9 +133,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CL.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CuanhomRoto/inowa.jpg" alt=" ">
+                                            <img src="{{ asset('customer/images/img-product/CuanhomRoto/inowa.jpg') }}" alt=" ">
                                         </div>
                                         <div class="product-content ">
                                             <h4>Cửa trượt Patio Inowa</h4>
@@ -143,9 +143,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CNT.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CuanhomRoto/patiolift-2.jpg"
+                                            <img src="{{ asset('customer/images/img-product/CuanhomRoto/patiolift-2.jpg') }}"
                                                  alt=" ">
                                         </div>
                                         <div class="product-content ">
@@ -154,9 +154,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CLT.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CuanhomRoto/lattruot.png" alt=" ">
+                                            <img src="{{ asset('customer/images/img-product/CuanhomRoto/lattruot.png') }}" alt=" ">
                                         </div>
                                         <div class="product-content ">
                                             <h4>Cửa lật trượt PATIO ALVERSA</h4>
@@ -164,9 +164,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CXG.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CuanhomRoto/gaptruot-2.jpg"
+                                            <img src="{{ asset('customer/images/img-product/CuanhomRoto/gaptruot-2.jpg') }}"
                                                  alt=" ">
                                         </div>
                                         <div class="product-content ">
@@ -175,9 +175,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CXG.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CXG/CXG.jpg " alt=" ">
+                                            <img src="{{ asset('customer/images/img-product/CXG/CXG.jpg') }}" alt=" ">
                                         </div>
                                         <div class="product-content ">
                                             <h4>Cửa quay trượt</h4>
@@ -185,9 +185,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product-CSMQ.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CSMQ/CSMQ-1.jpg " alt=" ">
+                                            <img src="{{ asset('customer/images/img-product/CSMQ/CSMQ-1.jpg') }}" alt=" ">
                                         </div>
                                         <div class="product-content ">
                                             <h4>Cửa sổ mở quay</h4>
@@ -195,9 +195,9 @@
                                     </a>
                                 </div>
                                 <div class="col-md-3 columns ">
-                                    <a href="../html/product.CSML.html ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
-                                            <img src="../img-glass-house/img-product/CSMT/CST-4.png " alt=" ">
+                                            <img src="{{ asset('customer/images/img-product/CSMT/CST-4.png') }}" alt=" ">
                                         </div>
                                         <div class="product-content ">
                                             <h4>Cửa sổ trượt</h4>
@@ -206,9 +206,9 @@
                                 </div>
                             </div>
                             <div class="col-md-3 columns ">
-                                <a href="../html/product.CSMH.html ">
+                                <a href="{{ route('customer.product.detail', 1) }}">
                                     <div class="product-img ">
-                                        <img src="../img-glass-house/img-product/CSMH/CSMH-1.jpg " alt=" ">
+                                        <img src="{{ asset('customer/images/img-product/CSMH/CSMH-1.jpg') }}" alt=" ">
                                     </div>
                                     <div class="product-content ">
                                         <h4>Cửa sổ mở hất</h4>
@@ -217,9 +217,9 @@
                             </div>
                         </div>
                         <div class="col-md-3 columns ">
-                            <a href="../html/product.CSMH.html ">
+                            <a href="{{ route('customer.product.detail', 1) }}">
                                 <div class="product-img ">
-                                    <img src="../img-glass-house/img-product/Kinhmatdung/kinhmatdung-2.jpg" alt=" ">
+                                    <img src="{{ asset('customer/images/img-product/CXG/CXG.jpg') }}" alt=" ">
                                 </div>
                                 <div class="product-content ">
                                     <h4>Vách kính mặt dựng</h4>

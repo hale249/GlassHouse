@@ -36,7 +36,7 @@ class AuthController extends Controller
         ]);
         $remember = $request->input('remember_me');
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->route('frontend.home')->with('flash_success', __('auth.login_success'));
+            return redirect()->route('admin.dashboard.index')->with('flash_success', __('auth.login_success'));
         }
 
         return redirect()->back()->withErrors([__('auth.failed')]);
@@ -81,6 +81,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('frontend.home')->with('flash_success', __('auth.logout_success'));
+        return redirect()->route('admin.dashboard.index')->with('flash_success', __('auth.logout_success'));
     }
 }

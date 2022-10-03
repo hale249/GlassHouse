@@ -19,19 +19,19 @@
     <div class="small-container single-product ">
         <div class="row ">
             <div class="col-2 ">
-                <img src="../img-glass-house/img-product/CSMH/CSMH-1.jpg" width="100% " id="productImg ">
+                <img src="{{ asset('customer/images/img-product/CSMH/CSMH-1.jpg') }}" width="100% " id="productImg ">
                 <div class="small-img-row ">
                     <div class="small-img-col ">
-                        <img src="../img-glass-house/img-product/CSMH/CSMH-3.jpg" width="100% " class="small-img ">
+                        <img src="{{ asset('customer/images/img-product/CSMH/CSMH-3.jpg') }}" width="100% " class="small-img ">
                     </div>
                     <div class="small-img-col ">
-                        <img src="../img-glass-house/img-product/CSMH/CSMH-4.jpg" width="100% " class="small-img ">
+                        <img src="{{ asset('customer/images/img-product/CSMH/CSMH-4.jpg') }}" width="100% " class="small-img ">
                     </div>
                     <div class="small-img-col ">
-                        <img src="../img-glass-house/img-product/CSMH/CSMH-5.jpg" width="100% " class="small-img ">
+                        <img src="{{ asset('customer/images/img-product/CSMH/CSMH-5.jpg') }}" width="100% " class="small-img ">
                     </div>
                     <div class="small-img-col ">
-                        <img src="../img-glass-house/img-product/CSMH/csm_Line_cranked_72f084644b-470x470.jpg" width="100% " class="small-img ">
+                        <img src="{{ asset('customer/images/img-product/CSMH/csm_Line_cranked_72f084644b-470x470.jpg') }}" width="100% " class="small-img ">
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
             ■ Đặc điểm chính: <br> - Phù hợp với mọi vị trí, kiến trúc <br> - Giảm trọng tải hiệu quả <br> - Không gây ảnh hưởng tới diện tích công trình <br> - Khi mở có thể mở hất góc to, nhỏ tùy ý, tối đa 45 độ<br>
         </p>
         <div class="image-detail">
-            <img src="../img-glass-house/img-product/CSMH/CSMH-1.jpg" alt="">
+            <img src="{{ asset('customer/iamges/img-product/CSMH/CSMH-1.jpg') }}" alt="">
         </div>
         <h3 class="small-title-detail">
             Một số kiểu cửa thông dụng
@@ -153,7 +153,7 @@
         <div class="row ">
             <div class="col-4 ">
                 <a href="product-CD1C-fix.html">
-                    <img src="../img-glass-house/img-product/CDMC-Fix/img-CDMC-Fix-1.jpg ">
+                    <img src="{{ asset('customer/images/img-product/CDMC-Fix/img-CDMC-Fix-1.jpg') }}">
                     <h4>Cửa đi một cánh và Fix</h4>
                     <div class="rating ">
                     </div>
@@ -161,8 +161,8 @@
                 </a>
             </div>
             <div class="col-4 ">
-                <a href="product-CL.html">
-                    <img src="../img-glass-house/img-product/CDMT/146708746457.jpg ">
+                <a href="{{ route('customer.product.detail', 1) }}">
+                    <img src="{{ asset('customer/images/img-product/CDMT/146708746457.jpg') }}">
                     <h4>Cửa lùa</h4>
                     <div class="rating ">
                     </div>
@@ -170,8 +170,8 @@
                 </a>
             </div>
             <div class="col-4 ">
-                <a href="product-CDNC.html">
-                    <img src="../img-glass-house/img-product/CDNC/img-CDNC-1.jpg">
+                <a href="{{ route('customer.product.detail', 1) }}">
+                    <img src="{{ asset('customer/images/img-product/CDNC/img-CDNC-1.jpg') }}">
                     <h4>Cửa đi nhiều cánh</h4>
                     <div class="rating ">
                     </div>
@@ -180,8 +180,8 @@
             </div>
 
             <div class="col-4 ">
-                <a href="product-CD1C.html">
-                    <img src="../img-glass-house/img-product/CDMC/img-product-CDMC-1.jpg ">
+                <a href="{{ route('customer.product.detail', 1) }}">
+                    <img src="{{ asset('customer/images/img-product/CDMC/img-product-CDMC-1.jpg') }}">
                     <h4>Cửa đi một cánh</h4>
                     <div class="rating ">
                     </div>

@@ -49,14 +49,14 @@
                             hiện đại, công nghệ tiên tiến theo tiêu chuẩn Châu Âu, chuyên gia người Đức trực tiếp đào
                             tạo chuyển giao công nghệ tạo nên các ưu điểm vượt trội, đáp ứng tất cả
                             các nhu cầu khắt khe nhất của Qúy khách hàng.</p>
-                        <a href="../html/product.html " class="button ">Xem Thêm </a>
+                        <a href="{{ route('customer.product.index') }}" class="button ">Xem Thêm </a>
                     </div>
                 </div>
 
                 <div class="col-md-3 columns ">
-                    <a href="../html/product-CD1C.html ">
+                    <a href="{{ route('customer.product.detail', 1) }}">
                         <div class="product-img ">
-                            <img src="../img-glass-house/img-product/CDMC/CDMC.png " alt=" "
+                            <img src="{{ asset('customer/images/img-product/CDMC/CDMC.png') }}" alt=" "
                                  style="background-size: cover; ">
                         </div>
                         <div class="product-content ">
@@ -69,9 +69,9 @@
                     </a>
                 </div>
                 <div class="col-md-3 columns ">
-                    <a href="../html/product-CDNC.html ">
+                    <a href="{{ route('customer.product.detail', 1) }}">
                         <div class="product-img ">
-                            <img src="../img-glass-house/img-product/CDNC/CDNC-3.png " alt=" ">
+                            <img src="{{ asset('customer/images/img-product/CDNC/CDNC-3.png') }}" alt=" ">
                         </div>
                         <div class="product-content ">
                             <h4>Cửa đi mở quay nhiều cánh</h4>
@@ -83,9 +83,9 @@
                     </a>
                 </div>
                 <div class="col-md-3 columns ">
-                    <a href="../html/product-CL.html ">
+                    <a href="{{ route('customer.project.index') }}">
                         <div class="product-img ">
-                            <img src="../img-glass-house/img-product/CL/CL.jpg " alt=" ">
+                            <img src="{{ asset('customer/images/img-product/CL/CL.jpg') }}" alt=" ">
                         </div>
                         <div class="product-content ">
                             <h4>Cửa trượt</h4>
@@ -97,9 +97,9 @@
                     </a>
                 </div>
                 <div class="col-md-3 columns ">
-                    <a href="../html/product-CXG.html ">
+                    <a href="{{ route('customer.product.detail', 1) }}">
                         <div class="product-img ">
-                            <img src="../img-glass-house/img-product/CXG/CXG.jpg " alt=" ">
+                            <img src="{{ asset('customer/images/img-product/CXG/CXG.jpg') }}" alt=" ">
                         </div>
                         <div class="product-content ">
                             <h4>Cửa gấp trượt</h4>
@@ -111,9 +111,9 @@
                     </a>
                 </div>
                 <div class="col-md-3 columns ">
-                    <a href="../html/product-CSMQ.html ">
+                    <a href="{{ route('customer.product.detail', 1) }}">
                         <div class="product-img ">
-                            <img src="../img-glass-house/img-product/CSMQ/CSMQ-1.jpg " alt=" ">
+                            <img src="{{ asset('customer/images/img-product/CSMQ/CSMQ-1.jpg') }}" alt=" ">
                         </div>
                         <div class="product-content ">
                             <h4>Cửa sổ mở quay</h4>
@@ -125,9 +125,9 @@
                     </a>
                 </div>
                 <div class="col-md-3 columns ">
-                    <a href="../html/product.CSML.html ">
+                    <a href="{{ route('customer.product.detail', 1) }}">
                         <div class="product-img ">
-                            <img src="../img-glass-house/img-product/CSMT/CST-4.png " alt=" ">
+                            <img src="{{ asset('customer/images/img-product/CSMT/CST-4.png') }}" alt=" ">
                         </div>
                         <div class="product-content ">
                             <h4>Cửa sổ trượt</h4>
@@ -156,16 +156,16 @@
                         sản phẩm tinh tế, sắc nét trên phân khúc cao cấp. Hiện nay, với việc là nhà phân phối chính hãng
                         dòng nhôm Rotoi và phụ kiện Roto,chúng tôi đang là đối tác chiến lược của Roto Frank tại khu vực
                         Đông Nam Á.</p>
-                    <a href="introduce.html " class="button ">Xem thêm </a>
+                    <a href="{{ route('customer.intro.index') }}" class="button ">Xem thêm </a>
 
                 </div>
                 <div class="col-md-4 ">
-                    <img src="../img-glass-house/img-product/img-project-1.jpg " alt=" "
+                    <img src="{{ asset('customer/images/img-product/img-project-1.jpg') }}" alt=" "
                          style="border: 10px solid #8ec6f7; ">
                     <div class="block-color ">
                         <p> Tư vấn <br> tận tình</p>
                     </div>
-                    <img src="../img-glass-house/img-project/img-project-index.jpg " class="img-about-2 " alt=" ">
+                    <img src="{{ asset('customer/images/img-project/img-project-index.jpg') }}" class="img-about-2 " alt=" ">
                     <div class="block-color-2 ">
                         <p>Sản phẩm chất lượng</p>
                     </div>
@@ -184,53 +184,53 @@
         <!-- cont inner start -->
         <div class="content-wrapper ">
             <div class="news-card ">
-                <a href="project-KS-A20-TamDao.html " class="news-card__card-link "></a>
-                <img src="../img-glass-house/img-project/golf-TamDao/a20-1.jpg " alt=" " class="news-card__image ">
+                <a href="{{ route('customer.project.index') }}" class="news-card__card-link "></a>
+                <img src="{{ asset('customer/images/img-project/golf-TamDao/a20-1.jpg') }}" alt=" " class="news-card__image ">
                 <div class="news-card__text-wrapper ">
                     <h2 class="news-card__title ">Khách sạn A20 Tam Đảo</h2>
                     <div class="news-card__post-date ">28/05/2019</div>
                     <div class="news-card__details-wrapper ">
                         <p class="news-card__excerpt ">Đơn vị sản xuất thi công lắp đặt hệ thống cửa nhôm kính, vòm và
                             vách kính: Công ty Cổ phần Thương mại và Xây dựng Glasshouse.&hellip;</p>
-                        <a href="project-KS-A20-TamDao.html " class="news-card__read-more ">Xem thêm <i
+                        <a href="{{ route('customer.project.index') }}" class="news-card__read-more ">Xem thêm <i
                                 class="fa fa-long-arrow-right "></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="news-card ">
-                <a href="project-BT-TrichSai.html " class="news-card__card-link "></a>
-                <img src="../img-glass-house/img-project/BT-TrichSai/BTTS-3.jpg " alt=" " class="news-card__image ">
+                <a href="{{ route('customer.project.index') }}" class="news-card__card-link "></a>
+                <img src="{{ asset('customer/images/img-project/BT-TrichSai/BTTS-3.jpg') }}" alt=" " class="news-card__image ">
                 <div class="news-card__text-wrapper ">
                     <h2 class="news-card__title ">Biệt thự Trích Sài</h2>
                     <div class="news-card__post-date ">15/03/2020</div>
                     <div class="news-card__details-wrapper ">
                         <p class="news-card__excerpt ">Đơn vị sản xuất thi công lắp đặt hệ thống cửa nhôm kính, vòm và
                             vách kính: Công ty Cổ phần Thương mại và Xây dựng Glasshouse.&hellip;</p>
-                        <a href="project-BT-TrichSai.html " class="news-card__read-more ">Xem thêm <i
+                        <a href="{{ route('customer.project.index') }}" class="news-card__read-more ">Xem thêm <i
                                 class="fa fa-long-arrow-right "></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="news-card ">
-                <a href="project-BT-VietHung.html " class="news-card__card-link "></a>
-                <img src="../img-glass-house/img-project/BT-VietHung/BTVH-1.jpg " alt=" " class="news-card__image ">
+                <a href="{{ route('customer.project.index') }}" class="news-card__card-link "></a>
+                <img src="{{ asset('customer/images/img-project/BT-VietHung/BTVH-1.jpg') }}" alt=" " class="news-card__image ">
                 <div class="news-card__text-wrapper ">
                     <h2 class="news-card__title ">Biệt thự Việt Hưng</h2>
                     <div class="news-card__post-date ">20/06/2019</div>
                     <div class="news-card__details-wrapper ">
                         <p class="news-card__excerpt ">Đơn vị sản xuất thi công lắp đặt hệ thống cửa nhôm kính, vòm và
                             vách kính: Công ty Cổ phần Thương mại và Xây dựng Glasshouse.&hellip;</p>
-                        <a href="project-BT-VietHung.html " class="news-card__read-more ">Xem thêm <i
+                        <a href="{{ route('customer.project.index') }}" class="news-card__read-more ">Xem thêm <i
                                 class="fa fa-long-arrow-right "></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="news-card ">
-                <a href="project-TH-LungLuong.html " class="news-card__card-link "></a>
-                <img src="../img-glass-house/img-project/TTH-LungLuong-NBChau/LungLuong-5.jpg " alt=" "
+                <a href="{{ route('customer.project.index') }}" class="news-card__card-link "></a>
+                <img src="{{ asset('customer/images/img-project/TTH-LungLuong-NBChau/LungLuong-5.jpg') }}" alt=" "
                      class="news-card__image ">
                 <div class="news-card__text-wrapper ">
                     <h2 class="news-card__title ">Trường tiểu học Lũng Luông - Ngô Bảo Châu </h2>
@@ -238,30 +238,30 @@
                     <div class="news-card__details-wrapper ">
                         <p class="news-card__excerpt ">Đơn vị sản xuất thi công lắp đặt hệ thống cửa nhôm kính, vòm và
                             vách kính: Công ty Cổ phần Thương mại và Xây dựng Glasshouse.&hellip;</p>
-                        <a href="project-TH-LungLuong.html " class="news-card__read-more ">Xem thêm <i
+                        <a href="{{ route('customer.project.index') }}" class="news-card__read-more ">Xem thêm <i
                                 class="fa fa-long-arrow-right "></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="news-card ">
-                <a href="project-DA-KienHung.html " class="news-card__card-link "></a>
-                <img src="../img-glass-house/img-project/DA-KienHung/DA-KH-1.jpg " alt=" " class="news-card__image ">
+                <a href="{{ route('customer.project.index') }}" class="news-card__card-link "></a>
+                <img src="{{ asset('customer/images/img-project/DA-KienHung/DA-KH-1.jpg') }}" alt=" " class="news-card__image ">
                 <div class="news-card__text-wrapper ">
                     <h2 class="news-card__title ">Khu nhà ở thấp tầng phường Kiến Hưng</h2>
                     <div class="news-card__post-date ">15/04/2019</div>
                     <div class="news-card__details-wrapper ">
                         <p class="news-card__excerpt ">Đơn vị sản xuất thi công lắp đặt hệ thống cửa nhôm kính, vòm và
                             vách kính: Công ty Cổ phần Thương mại và Xây dựng Glasshouse.&hellip;</p>
-                        <a href="project-DA-KienHung.html " class="news-card__read-more ">Xem thêm <i
+                        <a href="{{ route('customer.project.index') }}" class="news-card__read-more ">Xem thêm <i
                                 class="fa fa-long-arrow-right "></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="news-card ">
-                <a href="project-DiamondPlaza.html " class="news-card__card-link "></a>
-                <img src="../img-glass-house/img-project/Diamon-Plaza/Diamond-Plaza-1.jpg " alt=" "
+                <a href="{{ route('customer.project.index') }}" class="news-card__card-link "></a>
+                <img src="{{ asset('customer/images/img-project/Diamon-Plaza/Diamond-Plaza-1.jpg') }}" alt=" "
                      class="news-card__image ">
                 <div class="news-card__text-wrapper ">
                     <h2 class="news-card__title ">Tòa văn phòng Diamond Plaza</h2>
@@ -269,7 +269,7 @@
                     <div class="news-card__details-wrapper ">
                         <p class="news-card__excerpt ">Đơn vị sản xuất thi công lắp đặt hệ thống cửa nhôm kính, vòm và
                             vách kính: Công ty Cổ phần Thương mại và Xây dựng Glasshouse.&hellip;</p>
-                        <a href="project-DiamondPlaza.html " class="news-card__read-more ">Xem thêm <i
+                        <a href="{{ route('customer.project.index') }}" class="news-card__read-more ">Xem thêm <i
                                 class="fa fa-long-arrow-right "></i></a>
                     </div>
                 </div>
@@ -315,18 +315,18 @@
     <div id="partner">
         <h2 class="title" style="margin-top: 30px">Đối tác tiêu biểu</h2>
         <div class="partner-logo-1">
-            <img src="../img-glass-house/img-logo/logo-roto.png " alt=" ">
-            <img src="../img-glass-house/img-logo//logo-press-metan.png " alt=" ">
-            <img src="../img-glass-house/img-logo//logo-schuco.png " alt=" ">
-            <img src="../img-glass-house/img-logo//logo-reynaers.png " alt=" ">
-            <img src="../img-glass-house/img-logo//logo-xingfa.png " alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-roto.png') }}" alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-press-metan.png') }}" alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-schuco.png') }}" alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-reynaers.png') }}" alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-xingfa.png') }}" alt=" ">
         </div>
         <div class="partner-logo-2 ">
-            <img src="../img-glass-house/img-logo//logo-asiaglass.png " alt=" ">
-            <img src="../img-glass-house/img-logo//logo-halonglass.png " alt=" ">
-            <img src="../img-glass-house/img-logo//logo-vinaconex.png " alt=" ">
-            <img src="../img-glass-house/img-logo//logo-dowcorning.png " alt=" ">
-            <img src="../img-glass-house/img-logo//logo-shinetsu.png " alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-asiaglass.png') }}" alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-halonglass.png') }}" alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-vinaconex.png') }}" alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-dowcorning.png') }}" alt=" ">
+            <img src="{{ asset('customer/images/img-logo/logo-shinetsu.png') }}" alt=" ">
         </div>
     </div>
 @endsection

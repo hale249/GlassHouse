@@ -3,7 +3,7 @@
         <div class="row ">
             <div class="col-sm-4 ">
                 <div class="footer-img ">
-                    <img src="../img-glass-house/img-logo/logo.png " alt="Glasshouse ">
+                    <img src="{{ asset('customer/images/img-logo/logo.png') }}" alt="Glasshouse ">
                     <i>"Đưa phong cách Châu Âu đến với ngôi nhà của bạn "</i>
                 </div>
                 <ul>

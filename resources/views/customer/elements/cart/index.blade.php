@@ -28,7 +28,7 @@
 
         <div class="product">
             <div class="product-image">
-                <img src="../img-glass-house/img-product/CDMC/CDMC-5.png">
+                <img src="{{ asset('customer/images/img-product/CDMC/CDMC-5.png') }}">
             </div>
             <div class="product-details">
                 <div class="product-title">Cửa đi một cánh</div>
@@ -54,7 +54,7 @@
 
         <div class="product ">
             <div class="product-image ">
-                <img src="../img-glass-house/img-product/CDMC-Fix/img-CDMC-Fix-1.jpg ">
+                <img src="{{ asset('customer/images/img-product/CDMC-Fix/img-CDMC-Fix-1.jpg') }}">
             </div>
             <div class="product-details ">
                 <div class="product-title ">Cửa đi một cánh kèm Fix</div>

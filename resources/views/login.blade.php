@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@lang('labels.pages.login.title')</title>
     <!-- Styles -->
+    <link rel="stylesheet" href="/css/backend/app.css">
+
 </head>
 
 <body class="bg-gradient-primary">

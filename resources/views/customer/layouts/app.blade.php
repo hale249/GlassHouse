@@ -8,7 +8,7 @@
     <title>@yield('title') - Công ty Cổ phần Xây dựng và Thương mại Glasshouse</title>
     <!-- Style-Css -->
     <!--  Icon-Tab-Chrome -->
-    <link rel="shortcut icon" href="{{ asset('customer/img-glass-house/img-logo/logo-khong-nen-GH.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('customer/images/img-logo/logo-khong-nen-GH.png') }}" type="image/x-icon">
     <!-- Font -->
     <link href='https://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Libre Baskerville' rel='stylesheet'>
@@ -39,64 +39,64 @@
                 <a href="{{ route('customer.product.index') }}">SẢN PHẨM <i class="fa fa-angle-down"></i> </a>
                 <ul class="subnav" style="border-radius: 5px;">
                     <li>
-                        <a href="#">Cửa đi<i class="fa fa-angle-down"></i></a>
+                        <a href="{{ route('customer.product.detail', 1) }}">Cửa đi<i class="fa fa-angle-down"></i></a>
                         <ul class="child-subnav">
-                            <li><a href="../html/product-CD1C.html">Cửa đi 1 cánh</a></li>
-                            <li><a href="../html/product-CD1C-fix.html">Cửa đi 1 cánh và Fix</a></li>
-                            <li><a href="../html/product-CDNC.html">Cửa đi nhiều cánh</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa đi 1 cánh</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa đi 1 cánh và Fix</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa đi nhiều cánh</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Cửa sổ <i class="fa fa-angle-down"></i></a>
+                        <a href="{{ route('customer.product.detail', 1) }}">Cửa sổ <i class="fa fa-angle-down"></i></a>
                         <ul class="child-subnav">
-                            <li><a href="../html/product-CSMH.html">Cửa sổ mở hất</a></li>
-                            <li><a href="../html/product-CSMQ.html">Cửa sổ mở quay</a></li>
-                            <li><a href="../html/product.CSML.html">Cửa sổ mở trượt</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa sổ mở hất</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa sổ mở quay</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa sổ mở trượt</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="../html/product-CL.html">Cửa trượt <i class="fa fa-angle-down"></i></a>
+                        <a href="{{ route('customer.product.detail', 1) }}">Cửa trượt <i class="fa fa-angle-down"></i></a>
                         <ul class="child-subnav">
-                            <li><a href="../html/product-CL.html">Cửa trượt Inowa</a></li>
-                            <li><a href="../html/product-CuaNhacTruot.html">Cửa nhấc trượt</a></li>
-                            <li><a href="../html/product-Cualattruot.html">Cửa lật trượt</a></li>
-                            <li><a href="../html/product-CXG.html">Cửa gấp trượt</a></li>
-                            <li><a href="../html/cua-quay-truot.html">Cửa quay trượt</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa trượt Inowa</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa nhấc trượt</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa lật trượt</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa gấp trượt</a></li>
+                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa quay trượt</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="../html/kinh-mat-dung.html">Vách kính mặt dựng</a>
+                        <a href="{{ route('customer.product.detail', 1) }}">Vách kính mặt dựng</a>
                     </li>
                 </ul>
             </li>
-            <li><a href="#" style="color: #cf2e2e">sản phẩm ROTO <i class="fa fa-angle-down"></i></a>
+            <li><a href="{{ route('customer.product.detail', 1) }}" style="color: #cf2e2e">sản phẩm ROTO <i class="fa fa-angle-down"></i></a>
                 <ul class="subnav">
                     <li>
-                        <a href="../html/cua-nhom-roto.html" style="color: #cf2e2e">Cửa nhôm Rotoi</a></li>
+                        <a href="{{ route('customer.product.detail', 1) }}" style="color: #cf2e2e">Cửa nhôm Rotoi</a></li>
                     <li>
-                        <a href=" ../html/phu-kien-roto.html " style="color: #cf2e2e">Phụ kiện Roto</a></li>
+                        <a href="{{ route('customer.product.detail', 1) }}" style="color: #cf2e2e">Phụ kiện Roto</a></li>
                 </ul>
             </li>
             <li>
                 <a href="{{ route('customer.project.index') }} ">CÔNG TRÌNH <i class="fa fa-angle-down "></i></a>
                 <ul class="subnav ">
-                    <li><a href="../html/project-BT.html ">Biệt thự</a></li>
-                    <li><a href="../html/project-NP.html ">Nhà phố</a></li>
-                    <li><a href="../html/project-KS.html ">Khách sạn</a></li>
-                    <li><a href="../html/project-CTK.html ">Dự án</a></li>
+                    <li><a href="{{ route('customer.project.detail', 1) }}">Biệt thự</a></li>
+                    <li><a href="{{ route('customer.project.detail', 1) }}">Nhà phố</a></li>
+                    <li><a href="{{ route('customer.project.detail', 1) }}">Khách sạn</a></li>
+                    <li><a href="{{ route('customer.project.detail', 1) }}">Dự án</a></li>
                 </ul>
             </li>
             <li><a href="{{ route('customer.contact.index') }} ">LIÊN HỆ</a></li>
 {{--            <li><a href="hiring.html ">tuyển dụng</a></li>--}}
             <li>
-                <a href="{{ route('customer.cart.index    ') }}" class="button-cart"><i class="fa fa-shopping-cart " style="font-size: 16px; "></i></a>
+                <a href="{{ route('customer.cart.index') }}" class="button-cart"><i class="fa fa-shopping-cart " style="font-size: 16px; "></i></a>
             </li>
             <li>
                 <a href="{{ route('customer.formLogin') }}"><i class="fa fa-user"></i></a>
             </li>
         </ul>
     </nav>
-    <img src="{{asset('customer/img-glass-house/img-logo/menu.png')}}" class="menu-icon" onclick="menutoggle() ">
+    <img src="{{asset('customer/images/img-logo/menu.png')}}" class="menu-icon" onclick="menutoggle() ">
 </div>
 
 @yield('slider');
@@ -124,7 +124,7 @@
     </div>
     <div class="agent-face ">
         <div class="half ">
-            <img class="agent circle " src="../img-glass-house/img-logo/logo-nen-trang-GH.png " width="60px " height="60px " alt="Glasshouse "></div>
+            <img class="agent circle " src="{{asset("customer/images/img-logo/logo-nen-trang-GH.png")}}" width="60px " height="60px " alt="Glasshouse "></div>
     </div>
     <div class="chat ">
         <div class="chat-title ">
@@ -209,12 +209,12 @@
         if ($('.message-input').val() != '') {
             return false;
         }
-        $('<div class="message loading new "><figure class="avatar "><img src="{{ asset('customer/img-glass-house/img-logo/logo-nen-trang-GH.png') }} " /></figure><span></span></div>').appendTo($('.mCSB_container'));
+        $('<div class="message loading new "><figure class="avatar "><img src="{{ asset('customer/images/img-logo/logo-nen-trang-GH.png') }} " /></figure><span></span></div>').appendTo($('.mCSB_container'));
         updateScrollbar();
 
         setTimeout(function() {
             $('.message.loading').remove();
-            $('<div class="message new "><figure class="avatar "><img src="{{ asset('customer/img-glass-house/img-logo/logo-nen-trang-GH.png') }}" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
+            $('<div class="message new "><figure class="avatar "><img src="{{ asset('customer/images/img-logo/logo-nen-trang-GH.png') }}" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
             setDate();
             updateScrollbar();
             i++;

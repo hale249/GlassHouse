@@ -11,7 +11,7 @@ class ProductController extends Controller
         return view('customer.elements.product.index');
     }
 
-    public function detail()
+    public function detail($slug)
     {
         return view('customer.elements.product.detail');
     }

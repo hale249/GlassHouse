@@ -13,6 +13,6 @@ class ProjectController extends Controller
 
     public function detail()
     {
-        return view('customer.elements.project.show');
+        return view('customer.elements.project.detail');
     }
 }

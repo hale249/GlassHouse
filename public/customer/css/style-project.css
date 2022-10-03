@@ -189,7 +189,7 @@ p {
 .title {
     display: flex;
     margin-top: 70px;
-    background-image: url(../img-glass-house/img-bg-title.jpg);
+    background-image: url(../customer/images/img-bg-title.jpg);
     height: 275px;
     justify-content: center;
     align-items: center;
@@ -534,7 +534,7 @@ p {
 }
 
 #footer {
-    background-image: url('../img-glass-house/img-product/footer.jpg');
+    background-image: url('../customer/images/img-product/footer.jpg');
     height: auto;
     font-size: 16px;
 }
@@ -664,7 +664,7 @@ p {
     top: 70px;
     left: 70px;
     position: absolute;
-    background: rgba(30, 30, 30, 0.1) url(../img-glass-house/img-product/phone.png) no-repeat center center;
+    background: rgba(30, 30, 30, 0.1) url(../customer/images/img-product/phone.png) no-repeat center center;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
