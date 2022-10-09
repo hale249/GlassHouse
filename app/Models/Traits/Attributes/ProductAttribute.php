@@ -18,7 +18,6 @@ trait ProductAttribute
           '.$this->show_button.'
           '.$this->edit_button.'
           '.$this->delete_button.'
-          '.$this->show_item_button.'
         </div>';
     }
 
@@ -68,13 +67,5 @@ trait ProductAttribute
     public function getPriceLabelAttribute(): string
     {
         return '$' . $this->price;
-    }
-
-    /**
-     * @return string
-     */
-    public function getShowItemButtonAttribute(): string
-    {
-        return '<a href="'.route('admin.product_item.index', $this->id).'" class="btn btn-info btn-sm">' . __('labels.pages.admin.product.table.view_item') . '</a>';
     }
 }

@@ -62,8 +62,8 @@
                 <label class="col-md-2 form-control-label" for="description">Mô tả ngắn</label>
 
                 <div class="col-md-10">
-                    @if($product->description)
-                        {{ $product->description }}
+                    @if($product->description_short)
+                        {{ $product->description_short }}
                     @else
                         @lang('labels.general.empty')
                     @endif
@@ -73,8 +73,8 @@
             <div class="form-group row">
                 <label class="col-md-2 form-control-label">Nội dung</label>
                 <div class="col-md-10">
-                    @if($product->content)
-                        {!! $product->content !!}
+                    @if($product->description)
+                        {!! $product->description !!}
                     @else
                         @lang('labels.general.empty')
                     @endif

@@ -1,31 +1,31 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Chỉnh sửa')
+@section('title', 'Thay đổi mật khẩu')
 
 @section('content')
     <div class="card">
-        <form action="{{ route('admin.customer.update', $customer->id) }}" method="POST">
-            @method('put')
+        <form action="{{ route('admin.customer.change_password', $customer->id) }}" method="POST">
             @csrf
             <div class="card-body">
                 <h4 class="card-title mb-0">
                     Quản lý khách hàng
-                    <small class="text-muted">Chỉnh sửa</small>
+                    <small class="text-muted">Thay đổi mật khẩu</small>
                 </h4>
                 <hr>
+
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="name">Tên</label>
+                    <label class="col-md-2 form-control-label" for="password">Mật khẩu</label>
 
                     <div class="col-md-10">
-                        <input class="form-control" type="text" name="name" id="name" value="{{ $customer->name }}" placeholder="Nhập tên..." maxlength="191" required="" autofocus="">
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Nhập mật khẩu..." maxlength="191" required="" autofocus="">
                     </div><!--col-->
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="email">Email</label>
+                    <label class="col-md-2 form-control-label" for="password-confirmation">Xác nhận mật khẩu</label>
 
                     <div class="col-md-10">
-                        <input class="form-control" type="email" name="email" id="email" disabled value="{{ $customer->email }}" placeholder="Nhập email..." maxlength="191" required="" autofocus="">
+                        <input class="form-control" type="password" name="password_confirmation" id="password-confirmation" placeholder="Xác nhận mật khẩu" maxlength="191" required="" autofocus="">
                     </div><!--col-->
                 </div>
             </div>

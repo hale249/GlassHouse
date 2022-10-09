@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="card">
-        <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.project_category.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <h4 class="card-title mb-0">
@@ -27,19 +27,11 @@
                         <textarea class="form-control" name="description" id="description" placeholder="Nhập mô tả" rows="5">{{ old('description') }}</textarea>
                     </div><!--col-->
                 </div>
-
-                <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="image">Hình ảnh</label>
-
-                    <div class="col-md-10">
-                        <input type="file" name="image" id="image">
-                    </div><!--col-->
-                </div>
             </div>
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('admin.category.index') }}" class="btn btn-danger btn-sm">Thoát</a>
+                        <a href="{{ route('admin.project_category.index') }}" class="btn btn-danger btn-sm">Thoát</a>
                     </div>
 
                     <div class="col text-right">

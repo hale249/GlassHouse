@@ -12,9 +12,7 @@
                     </h4>
                 </div>
                 <div class="col-4 text-right">
-                    @can(\App\Helpers\PermissionConstant::PERMISSION_ADD_PRODUCT)
-                        <a href="{{ route('admin.product.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tạo mới</a>
-                    @endcan
+                        <a href="{{ route('admin.project.create') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i>Tạo mới</a>
                 </div>
             </div>
 

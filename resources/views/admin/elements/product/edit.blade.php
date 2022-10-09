@@ -55,7 +55,7 @@
                     <label class="col-md-2 form-control-label" for="description">Mô tả ngắn</label>
 
                     <div class="col-md-10">
-                        <textarea class="form-control" name="description" id="description" placeholder="Nhập mô tả ngắn" rows="5">{{ $product->description }}</textarea>
+                        <textarea class="form-control" name="description_short" id="description" placeholder="Nhập mô tả ngắn" rows="5">{{ $product->description_short }}</textarea>
                     </div><!--col-->
                 </div>
 
@@ -63,7 +63,7 @@
                     <label class="col-md-2 form-control-label" for="content-text">Nôi dung</label>
 
                     <div class="col-md-10">
-                        <textarea class="form-control" name="content" id="content-text" placeholder="Nhập nội dung" rows="5">{!! $product->content !!}</textarea>
+                        <textarea class="form-control" name="description" id="content-text" placeholder="Nhập nội dung" rows="5">{!! $product->description !!}</textarea>
                     </div><!--col-->
                 </div>
 

@@ -77,6 +77,7 @@ class ProductController extends Controller
             'name',
             'price',
             'description',
+            'description_short',
             'content',
             'category_id'
         ]);
@@ -86,11 +87,11 @@ class ProductController extends Controller
         }
 
         $data['user_id'] = auth()->id();
-        $data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
+//        $data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
         Product::query()
             ->create($data);
 
-        return redirect()->route('admin.product.index')->with('flash_success', __('labels.pages.admin.product.messages.create_success'));
+        return redirect()->route('admin.product.index')->with('flash_success', 'Tạo sản phẩm thành công');
     }
 
     /**
@@ -146,10 +147,10 @@ class ProductController extends Controller
             $data['image'] = $this->uploadFile($request->file('image'), 'products');
         }
 
-        $data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
+        //$data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
         $product->update($data);
 
-        return redirect()->route('admin.product.index')->with('flash_success', __('labels.pages.admin.product.messages.update_success'));
+        return redirect()->route('admin.product.index')->with('flash_success', 'Cập nhật sản phẩm thành công');
     }
 
     /**
@@ -166,6 +167,6 @@ class ProductController extends Controller
         $this->authorize('delete', $product);
         $product->delete();
 
-        return redirect()->route('admin.product.index')->with('flash_success', __('labels.pages.admin.product.messages.delete_success'));
+        return redirect()->route('admin.product.index')->with('flash_success', 'Xoá sản phẩm thành công');
     }
 }

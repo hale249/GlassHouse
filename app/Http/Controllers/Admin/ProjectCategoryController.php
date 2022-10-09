@@ -61,30 +61,10 @@ class ProjectCategoryController extends Controller
             'description',
         ]);
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadFile($request->file('image'), 'categories');
-        }
-
-        $data['user_id'] = auth()->id();
-        Category::query()
+        ProjectCategory::query()
             ->create($data);
 
-        return redirect()->route('admin.project-category.index')->with('flash_success', __('labels.pages.admin.category.messages.create_success'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return View
-     * @throws AuthorizationException
-     */
-    public function show($id): View
-    {
-        $category = Category::query()->findOrFail($id);
-        $this->authorize('view', $category);
-
-        return view('admin.elements.project_category.show', compact('category'));
+        return redirect()->route('admin.project_category.index')->with('flash_success', 'Tạo thành công');
     }
 
     /**
@@ -92,12 +72,10 @@ class ProjectCategoryController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
     public function edit($id): View
     {
-        $category = Category::query()->findOrFail($id);
-        $this->authorize('update', $category);
+        $category = ProjectCategory::query()->findOrFail($id);
 
         return view('admin.elements.project_category.edit', compact('category'));
     }
@@ -108,7 +86,6 @@ class ProjectCategoryController extends Controller
      * @param CategoryStoreRequest $request
      * @param int $id
      * @return RedirectResponse
-     * @throws AuthorizationException
      */
     public function update(CategoryStoreRequest $request, $id): RedirectResponse
     {
@@ -116,15 +93,10 @@ class ProjectCategoryController extends Controller
             'name',
             'description',
         ]);
-        $category = Category::query()->findOrFail($id);
-        $this->authorize('update', $category);
-        if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadFile($request->file('image'), 'categories');
-        }
-
+        $category = ProjectCategory::query()->findOrFail($id);
         $category->update($data);
 
-        return redirect()->route('admin.category.index')->with('flash_success', __('labels.pages.admin.category.messages.update_success'));
+        return redirect()->route('admin.project_category.index')->with('flash_success', 'Cập nhật thành công');
     }
 
     /**
@@ -136,10 +108,9 @@ class ProjectCategoryController extends Controller
      */
     public function destroy($id): RedirectResponse
     {
-        $category = Category::query()->findOrFail($id);
-        $this->authorize('delete', $category);
+        $category = ProjectCategory::query()->findOrFail($id);
         $category->delete();
 
-        return redirect()->route('admin.category.index')->with('flash_success', __('labels.pages.admin.category.messages.delete_success'));
+        return redirect()->route('admin.project_category.index')->with('flash_success', 'Xoá thành công');
     }
 }

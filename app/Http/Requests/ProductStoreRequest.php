@@ -27,7 +27,7 @@ class ProductStoreRequest extends FormRequest
         return [
             'name' => 'required',
             'price' => 'required|numeric',
-            'image' => 'nullable|image|dimensions:ratio=4/3|max:1024',
+//            'image' => 'nullable|image|dimensions:ratio=4/3|max:1024',
             'status' => 'boolean',
             'category_id' => [
                 'required',

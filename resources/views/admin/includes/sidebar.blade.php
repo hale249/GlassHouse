@@ -26,15 +26,15 @@
         Khách hàng
     </div>
 
-    <li class="nav-item @if(\Request::is('admin/products') || \Request::is('admin/products/*')) active @endif">
-        <a class="nav-link" href="{{ route('admin.product.index') }}">
+    <li class="nav-item @if(\Request::is('admin/customers') || \Request::is('admin/customers/*')) active @endif">
+        <a class="nav-link" href="{{ route('admin.customer.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Khách hàng</span>
         </a>
     </li>
 
-    <li class="nav-item @if(\Request::is('admin/products') || \Request::is('admin/products/*')) active @endif">
-        <a class="nav-link" href="{{ route('admin.product.index') }}">
+    <li class="nav-item @if(\Request::is('admin/cart') || \Request::is('admin/cart/*')) active @endif">
+        <a class="nav-link" href="{{ route('admin.cart.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Đơn hàng</span>
         </a>
@@ -60,15 +60,15 @@
         </a>
     </li>
 
-    <li class="nav-item @if(\Request::is('admin/products') || \Request::is('admin/products/*')) active @endif">
-        <a class="nav-link" href="{{ route('admin.product.index') }}">
+    <li class="nav-item @if(\Request::is('admin/project-category') || \Request::is('admin/project-category/*')) active @endif">
+        <a class="nav-link" href="{{ route('admin.project_category.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Danh mục dự án</span>
         </a>
     </li>
 
-    <li class="nav-item @if(\Request::is('admin/products') || \Request::is('admin/products/*')) active @endif">
-        <a class="nav-link" href="{{ route('admin.product.index') }}">
+    <li class="nav-item @if(\Request::is('admin/project') || \Request::is('admin/project/*')) active @endif">
+        <a class="nav-link" href="{{ route('admin.project.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>Quản lý dự án</span>
         </a>

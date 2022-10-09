@@ -18,8 +18,8 @@ class Product extends Model
         'name',
         'slug',
         'image',
+        'description_short',
         'description',
-        'content',
         'price',
         'quantity',
         'is_disabled'
@@ -30,6 +30,5 @@ class Product extends Model
         'user_id' => 'integer',
         'price' => 'double',
         'quantity' => 'integer',
-        'is_disabled' => 'boolean'
     ];
 }

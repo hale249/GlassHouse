@@ -47,6 +47,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
         require __DIR__ . '/admin/category.php';
         require __DIR__ . '/admin/product.php';
         require __DIR__ . '/admin/product-item.php';
+        require __DIR__ . '/admin/project.php';
+        require __DIR__ . '/admin/customer.php';
+        require __DIR__ . '/admin/cart.php';
     });
 });
 

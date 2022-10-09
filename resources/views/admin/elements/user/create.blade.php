@@ -60,11 +60,11 @@
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('admin.users.index') }}" class="btn btn-danger btn-sm">@lang('labels.general.cancel')</a>
+                        <a href="{{ route('admin.users.index') }}" class="btn btn-danger btn-sm">Thoát</a>
                     </div>
 
                     <div class="col text-right">
-                        <button type="submit" class="btn btn-success btn-sm">@lang('labels.pages.admin.users.form.create_submit')</button>
+                        <button type="submit" class="btn btn-success btn-sm">Tạo mới</button>
                     </div>
                 </div>
             </div>
