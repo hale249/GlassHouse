@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-8">
                     <h4 class="card-title mb-0">
-                        Danh mục sản phẩm
+                        Quản lý dự án
                     </h4>
                 </div>
                 <div class="col-4 text-right">
@@ -38,45 +38,43 @@
                         <thead>
                         <tr>
                             <td><strong>Tên</strong></td>
-                            <td><strong>Hình ảnh</strong></td>
                             <td><strong>Danh mục</strong></td>
-                            <td><strong>Giá</strong></td>
-                            <td><strong>Số lượng</strong></td>
                             <td><strong>Trạng thái</strong></td>
-                            @can(\App\Helpers\PermissionConstant::PERMISSION_VIEW_LIST_ALL_PRODUCT)
-                                <td><strong>Người tạo</strong></td>
-                            @endcan
+                            <td><strong>Người tạo</strong></td>
                             <td><strong>Tạo lúc</strong></td>
                             <td style="width: 210px;"><strong>Hành động</strong></td>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($products as $product)
+                        @foreach($projects as $project)
                             <tr>
-                                <td>{{ $product->name }}</td>
+                                <td>{{ $project->name }}</td>
                                 <td>
-                                    <img src="{{ $product->image }}" width="100">
-                                </td>
-                                <td>
-                                    @if(!empty($product->category))
-                                        <a href="{{ route('admin.category.show', $product->category_id) }}" target="_blank">{{ $product->category->name }}</a>
+                                    @if(!empty($project->category))
+                                        <a href="{{ route('admin.project_category.edit', $project->category_id) }}" target="_blank">{{ $project->category->name ?? '' }}</a>
                                     @endif
                                 </td>
-                                <td>{{ $product->price_label }}</td>
-                                <td>{{ $product->quantity }}</td>
-                                <td>{!! $product->status_label !!}</td>
-                                @can(\App\Helpers\PermissionConstant::PERMISSION_VIEW_LIST_ALL_PRODUCT)
-                                    <td>{{ $product->user->name }}</td>
-                                @endcan
-                                <td>{{ $product->created_at }}</td>
-                                <td>{!! $product->action_buttons !!}</td>
+                                <td>{!! $project->active_label !!}</td>
+                                <td>{{ $project->user->name }}</td>
+                                <td>{{ $project->created_at }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Hanh dong">
+                                        <a href="{{ route('admin.project.edit', $project->id) }}" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('admin.project.destroy', $project->id) }}"
+                                           data-trans-button-cancel="Thoát"
+                                           data-trans-button-confirm="Xoá"
+                                           data-trans-title="Xoá khách hàng"
+                                           class="btn btn-danger js-confirm-delete btn-sm"><i class="fas fa-trash"></i></a>
+
+                                    </div>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="text-right">
-                    {{ $products->links() }}
+                    {{ $projects->links() }}
                 </div>
             </div>
         </div>

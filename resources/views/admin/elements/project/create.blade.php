@@ -4,11 +4,11 @@
 
 @section('content')
     <div class="card">
-        <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <h4 class="card-title mb-0">
-                    Quản lý sản phẩm
+                    Quản lý dự án
                     <small class="text-muted">Tạo mới</small>
                 </h4>
                 <hr>
@@ -34,26 +34,18 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="price">Giá</label>
+                    <label class="col-md-2 form-control-label" for="seo_text">SEO bài</label>
 
                     <div class="col-md-10">
-                        <input class="form-control" type="number" step="0.01" name="price" id="price" value="{{ old('price') }}" placeholder="Nhập giá" maxlength="191" required="" autofocus="">
+                        <textarea class="form-control" name="seo_text" id="seo_text" placeholder="Nhập nội dung seo" rows="5">{{ old('seo_text') }}</textarea>
                     </div><!--col-->
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="image">Hình ảnh</label>
+                    <label class="col-md-2 form-control-label" for="description_short">Mô tả ngắn</label>
 
                     <div class="col-md-10">
-                        <input type="file" name="image" id="image">
-                    </div><!--col-->
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="description">Mô tả ngắn</label>
-
-                    <div class="col-md-10">
-                        <textarea class="form-control" name="description" id="description" placeholder="Nhập mô tả ngắn" rows="5">{{ old('description') }}</textarea>
+                        <textarea class="form-control" name="description_short" id="description_short" placeholder="Nhập mô tả ngắn" rows="5">{{ old('description_short') }}</textarea>
                     </div><!--col-->
                 </div>
 
@@ -64,19 +56,11 @@
                         <textarea class="form-control" name="content" id="content-text" placeholder="Nội dung" rows="10">{!! old('content') !!}</textarea>
                     </div><!--col-->
                 </div>
-
-                <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="status">Trạng thái</label>
-
-                    <div class="col-md-10">
-                        <input type="checkbox" data-on="Show" value="1" data-off="Hidden" name="status" id="status" checked data-toggle="toggle" data-onstyle="primary">
-                    </div><!--col-->
-                </div>
             </div>
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('admin.product.index') }}" class="btn btn-danger btn-sm">Thoát</a>
+                        <a href="{{ route('admin.project.index') }}" class="btn btn-danger btn-sm">Thoát</a>
                     </div>
 
                     <div class="col text-right">
@@ -86,6 +70,4 @@
             </div>
         </form>
     </div>
-@endsection
-@section('script')
 @endsection

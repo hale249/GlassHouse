@@ -36,10 +36,10 @@ class AuthController extends Controller
         ]);
         $remember = $request->input('remember_me');
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->route('admin.dashboard.index')->with('flash_success', __('auth.login_success'));
+            return redirect()->route('admin.dashboard.index')->with('flash_success', 'Thành công');
         }
 
-        return redirect()->back()->withErrors([__('auth.failed')]);
+        return redirect()->back()->withErrors(['Thất bại']);
     }
 
     /**
@@ -69,7 +69,7 @@ class AuthController extends Controller
 
         User::query()->create($data);
 
-        return redirect()->route('auth.login')->with('flash_success', __('auth.register_success'));
+        return redirect()->route('auth.login')->with('flash_success', 'Thành công');
     }
 
     /**
@@ -81,6 +81,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('admin.dashboard.index')->with('flash_success', __('auth.logout_success'));
+        return redirect()->route('admin.dashboard.index')->with('flash_success', 'Thành công');
     }
 }

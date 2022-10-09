@@ -71,18 +71,15 @@ class ProjectController extends Controller
     {
         $data = $request->only([
             'name',
-            'price',
-            'description',
+            'description_short',
             'content',
+            'address',
+            'type_project',
+            'seo_text',
             'category_id'
         ]);
 
-        if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadFile($request->file('image'), 'products');
-        }
-
-        $data['user_id'] = auth()->id();
-        $data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
+        $data['created_by'] = auth()->id();
         Project::query()
             ->create($data);
 
@@ -94,13 +91,11 @@ class ProjectController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
     public function show($id): View
     {
-        $product = Product::query()->findOrFail($id);
-        $this->authorize('view', $product);
-        return view('admin.elements.product.show', compact('product'));
+        $project = Project::query()->findOrFail($id);
+        return view('admin.elements.project.show', compact('project'));
     }
 
     /**
@@ -108,44 +103,37 @@ class ProjectController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
     public function edit($id): View
     {
-        $product = Product::query()->findOrFail($id);
-        $this->authorize('update', $product);
-        $categories = Category::query()->get();
+        $project = Project::query()->findOrFail($id);
+        $categories = ProjectCategory::query()->get();
 
-        return view('admin.elements.product.edit', compact('product', 'categories'));
+        return view('admin.elements.project.edit', compact('project', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
-     * @param ProductUpdateRequest $request
+     * @param Request $request
      * @param $id
      * @return RedirectResponse
-     * @throws AuthorizationException
      */
-    public function update(ProductUpdateRequest $request, $id): RedirectResponse
+    public function update(Request $request, $id): RedirectResponse
     {
         $data = $request->only([
             'name',
-            'price',
-            'description',
+            'description_short',
             'content',
+            'address',
+            'type_project',
+            'seo_text',
             'category_id'
         ]);
 
-        $product = Product::query()->findOrFail($id);
-        $this->authorize('update', $product);
-        if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadFile($request->file('image'), 'products');
-        }
+        $project = Project::query()->findOrFail($id);
+        $project->update($data);
 
-        $data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
-        $product->update($data);
-
-        return redirect()->route('admin.product.index')->with('flash_success', __('labels.pages.admin.product.messages.update_success'));
+        return redirect()->route('admin.project.index')->with('flash_success', 'Cập nhật thành công');
     }
 
     /**
@@ -153,15 +141,12 @@ class ProjectController extends Controller
      *
      * @param int $id
      * @return RedirectResponse
-     * @throws AuthorizationException
-     * @throws Exception
      */
     public function destroy($id): RedirectResponse
     {
-        $product = Product::query()->findOrFail($id);
-        $this->authorize('delete', $product);
-        $product->delete();
+        $project = Project::query()->findOrFail($id);
+        $project->delete();
 
-        return redirect()->route('admin.product.index')->with('flash_success', __('labels.pages.admin.product.messages.delete_success'));
+        return redirect()->route('admin.project.index')->with('flash_success', 'Xoá thành công');
     }
 }

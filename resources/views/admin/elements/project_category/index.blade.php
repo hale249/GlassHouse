@@ -31,7 +31,7 @@
                         @foreach($categories as $category)
                             <tr>
                                 <td>{{ $category->name }}</td>
-                                <td>{!! $category->status_label !!}</td>
+                                <td>{!! $category->active_label !!}</td>
                                 <td>{{ $category->created_at }}</td>
                                 <td>
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Hanh dong">

@@ -14,7 +14,6 @@ Route::get('cart', 'CartController@index')
 Route::get('cart/{id}', 'CartController@show')
     ->name('cart.show');
 
-
 /**
  * @see \App\Http\Controllers\Admin\CartController::update()
  */
