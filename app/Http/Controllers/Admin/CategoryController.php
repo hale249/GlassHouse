@@ -52,7 +52,7 @@ class CategoryController extends Controller
      *
      * @return View
      */
-    public function create(): View
+    public function create(): View //Trả dữ liệu về View để hiển thị trên màn hình tại Admin
     {
         return view('admin.elements.category.create');
     }
@@ -63,7 +63,7 @@ class CategoryController extends Controller
      * @param CategoryStoreRequest $request
      * @return RedirectResponse
      */
-    public function store(CategoryStoreRequest $request): RedirectResponse
+    public function store(CategoryStoreRequest $request): RedirectResponse //Sau khi điền thông tin và submit sẽ lưu vào db và lưu vào trang List
     {
         $data = $request->only([
             'name',
@@ -75,10 +75,10 @@ class CategoryController extends Controller
         }
 
         $data['user_id'] = auth()->id();
-        Category::query()
+        Category::query() //save vào db
             ->create($data);
 
-        return redirect()->route('admin.category.index')->with('flash_success', __('labels.pages.admin.category.messages.create_success'));
+        return redirect()->route('admin.category.index')->with('flash_success', __('labels.pages.admin.category.messages.create_success')); // trả về trang List
     }
 
     /**
@@ -103,7 +103,7 @@ class CategoryController extends Controller
      * @return View
      * @throws AuthorizationException
      */
-    public function edit($id): View
+    public function edit($id): View //Lấy dữ liệu theo ID và trả về dữ liệu cho file .blade để hiển thị phía admin
     {
         $category = Category::query()->findOrFail($id);
         $this->authorize('update', $category);
@@ -119,7 +119,7 @@ class CategoryController extends Controller
      * @return RedirectResponse
      * @throws AuthorizationException
      */
-    public function update(CategoryStoreRequest $request, $id): RedirectResponse
+    public function update(CategoryStoreRequest $request, $id): RedirectResponse //Khi người dùng điền thông tin ấn submit thì update lại thông tin
     {
         $data = $request->only([
             'name',

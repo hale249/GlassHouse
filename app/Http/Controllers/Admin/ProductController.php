@@ -25,12 +25,12 @@ class ProductController extends Controller
      * @param Request $request
      * @return View
      */
-    public function index(Request $request): View
+    public function index(Request $request): View //List ra danh sách tương ứng với dữ liệu Product trừ điều kiện where
     {
-        $data = $request->all();
-        $products = Product::query()
+        $data = $request->all(); //Get thông tin dữ liệu gửi lên từ Client
+        $products = Product::query() //Select  tất cả thông tin trong bảng Product và lấy theo tương ứng là User và Category
             ->with('user', 'category');
-        $userId = !empty($data['user_id']) ? $data['user_id'] : null;
+        $userId = !empty($data['user_id']) ? $data['user_id'] : null; 
         if (!empty($data['name'])) {
             $products = $products->where('name', 'like', '%' . $data['name'] . '%');
         }
@@ -47,8 +47,8 @@ class ProductController extends Controller
             $products = $products->where('user_id', $userId);
         }
 
-        $products = $products->orderBy('created_at', 'desc')
-            ->paginate(Constant::DEFAULT_PER_PAGE);
+        $products = $products->orderBy('created_at', 'desc') //Trả về dữ liệu xong sau đó sẽ sắp xếp theo trường dữ liệu created at
+            ->paginate(Constant::DEFAULT_PER_PAGE); //Rồi sau đó phân trang
         $categories = Category::query()->get();
 
         return view('admin.elements.product.index', compact('products', 'categories'));
