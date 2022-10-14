@@ -22,8 +22,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     @yield('css')
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="{{ asset('customer/function.js') }}"></script>
+    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
+    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js "></script>
 
+    <script src="{{ asset('customer/function.js') }}"></script>
 </head>
 
 <body>
@@ -140,10 +142,8 @@
         </div>
     </div>
 </section>
-<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
-<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js "></script>
 @yield('js')
-<script>
+<script type="application/javascript">
     var $messages = $('.messages-content'),
         d, h, m,
         i = 0;
@@ -221,8 +221,6 @@
         }, 1000 + (Math.random() * 20) * 100);
 
     }
-</script>
-<script>
     var MenuItems = document.getElementById("nav")
 
     MenuItems.style.maxHeight = "0px"
@@ -234,8 +232,7 @@
             MenuItems.style.maxHeight = "0px"
         }
     }
-</script>
-<script>
+
     function showChatbox() {
         var x = document.getElementById("chatbox");
         if (x.style.display === "block") {
@@ -254,8 +251,6 @@
         }
     }
 </script>
-
-
 </body>
 
 </html>
