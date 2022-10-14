@@ -194,7 +194,7 @@ a:hover {
     position: absolute;
     height: 500px;
     left: 0;
-    top: 70px;
+    top: 50px;
     right: 0;
     content: "";
     background-color: rgba(0, 0, 0, 0.36);
@@ -689,7 +689,7 @@ a:hover {
 }
 
 #footer {
-    background-image: url('../customer/images/img-product/footer.jpg');
+    background-image: url('http://127.0.0.1:8000/customer/images/img-product/footer.jpg');
     height: auto;
     font-size: 16px;
 }
@@ -819,7 +819,7 @@ a:hover {
     top: 70px;
     left: 70px;
     position: absolute;
-    background: rgba(30, 30, 30, 0.1) url(../customer/images/img-product/phone.png) no-repeat center center;
+    background: rgba(30, 30, 30, 0.1) url('http://127.0.0.1:8000/customer/images/img-product/phone.png') no-repeat center center;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;

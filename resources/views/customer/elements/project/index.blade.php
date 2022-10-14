@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="title">
-        <h1>Biệt thực</h1>
+        <h1>Biệt thự</h1>
         <div class="link" style="z-index: 2;">
             <a href="{{ route('customer.home.index') }}">Công trình</a> &nbsp;&nbsp;&nbsp;/ &nbsp;&nbsp;&nbsp;
             <a href="{{ route('customer.project.index') }}"><strong>Biệt thự</strong></a>

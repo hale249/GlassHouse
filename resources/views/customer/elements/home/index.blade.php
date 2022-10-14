@@ -160,7 +160,7 @@
 
                 </div>
                 <div class="col-md-4 ">
-                    <img src="{{ asset('customer/images/img-product/img-project-1.jpg') }}" alt=" "
+                    <img src="{{ asset('customer/images/img-product/img-project-1.png') }}" alt=" "
                          style="border: 10px solid #8ec6f7; ">
                     <div class="block-color ">
                         <p> Tư vấn <br> tận tình</p>

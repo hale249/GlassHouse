@@ -204,27 +204,27 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="col-md-3 columns ">
-                                <a href="{{ route('customer.product.detail', 1) }}">
-                                    <div class="product-img ">
-                                        <img src="{{ asset('customer/images/img-product/CSMH/CSMH-1.jpg') }}" alt=" ">
-                                    </div>
-                                    <div class="product-content ">
-                                        <h4>Cửa sổ mở hất</h4>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 columns ">
-                            <a href="{{ route('customer.product.detail', 1) }}">
-                                <div class="product-img ">
-                                    <img src="{{ asset('customer/images/img-product/CXG/CXG.jpg') }}" alt=" ">
+                                <div class="col-md-3 columns ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
+                                        <div class="product-img ">
+                                            <img src="{{ asset('customer/images/img-product/CSMH/CSMH-1.jpg') }}" alt=" ">
+                                        </div>
+                                        <div class="product-content ">
+                                            <h4>Cửa sổ mở hất</h4>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="product-content ">
-                                    <h4>Vách kính mặt dựng</h4>
+                                <div class="col-md-3 columns ">
+                                    <a href="{{ route('customer.product.detail', 1) }}">
+                                        <div class="product-img ">
+                                            <img src="{{ asset('customer/images/img-product/CXG/CXG.jpg') }}" alt=" ">
+                                        </div>
+                                        <div class="product-content ">
+                                            <h4>Vách kính mặt dựng</h4>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </div>
                 </div>

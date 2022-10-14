@@ -7,13 +7,6 @@
 @endsection
 
 @section('content')
-    <div class="title">
-        <h1>Sản phẩm</h1>
-        <div class="link" style="z-index: 2;">
-            <a href="{{ route('customer.home.index') }}">Trang chủ</a> &nbsp;&nbsp;&nbsp;/ &nbsp;&nbsp;&nbsp;
-            <a href="{{ route('customer.intro.index') }}"><strong>Chi tiết sản phẩm</strong></a>
-        </div>
-    </div>
 
     <!-- single product details -->
     <div class="small-container single-product ">

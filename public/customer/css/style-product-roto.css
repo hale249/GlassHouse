@@ -203,6 +203,7 @@ a:hover {
 .col-2 {
     flex-basis: 50%;
     min-width: 300px;
+    max-width: fit-content;
 }
 
 .col-2 p {
@@ -550,7 +551,7 @@ select:focus {
 }
 
 #footer {
-    background-image: url('../customer/images/img-product/footer.jpg');
+    background-image: url('http://127.0.0.1:8000/customer/images/img-product/footer.jpg');
     height: auto;
     font-size: 16px;
 }
@@ -698,7 +699,7 @@ select:focus {
     top: 70px;
     left: 70px;
     position: absolute;
-    background: rgba(30, 30, 30, 0.1) url(../customer/images/img-product/phone.png) no-repeat center center;
+    background: rgba(30, 30, 30, 0.1) url('http://127.0.0.1:8000/customer/images/img-product/phone.png') no-repeat center center;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -1579,7 +1580,7 @@ screen and (max-width: 450px) {
     }
     #nav .subnav a {
         line-height: 0;
-        padding: 5px 70px;
+        padding: 5px 40px;
     }
     .button-cart {
         width: 130px;

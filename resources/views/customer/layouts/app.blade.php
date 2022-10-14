@@ -115,33 +115,33 @@
         </div>
     </a>
 </div>
-<div class="chatbox-icon " onclick="showChatbox() " style="cursor: pointer; ">
+<div class="chatbox-icon" onclick="showChatbox()" style="cursor: pointer; ">
     <img src="{{ asset('customer/images/img-logo/chat.png') }}" alt=" " style="border-radius: 50%;background-color: #fff; ">
 </div>
-<section class="avenue-messenger " id="chatbox ">
-    <div class="menu ">
-        <div class="button-close " onclick="endChatbox() ">&#10005;</div>
+<section class="avenue-messenger" id="chatbox">
+    <div class="menu">
+        <div class="button-close" onclick="endChatbox()">&#10005;</div>
     </div>
-    <div class="agent-face ">
-        <div class="half ">
+    <div class="agent-face">
+        <div class="half">
             <img class="agent circle " src="{{asset("customer/images/img-logo/logo-nen-trang-GH.png")}}" width="60px " height="60px " alt="Glasshouse "></div>
     </div>
-    <div class="chat ">
-        <div class="chat-title ">
+    <div class="chat">
+        <div class="chat-title">
             <h1>Glasshouse</h1>
             <h2>Vui lòng chia sẻ mọi thắc mắc hoặc phản hồi của bạn.</h2>
         </div>
-        <div class="messages ">
-            <div class="messages-content "></div>
+        <div class="messages">
+            <div class="messages-content"></div>
         </div>
-        <div class="message-box ">
-            <textarea type="text " class="message-input " placeholder="Nhập câu trả lời... "></textarea>
-            <button type="submit " class="message-submit ">Gửi</button>
+        <div class="message-box">
+            <textarea type="text" class="message-input" placeholder="Nhập câu trả lời... "></textarea>
+            <button type="submit" class="message-submit">Gửi</button>
         </div>
     </div>
 </section>
-<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
-<script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js "></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js "></script>
 @yield('js')
 <script>
     var $messages = $('.messages-content'),
@@ -156,7 +156,7 @@
     });
 
     function updateScrollbar() {
-        $messages.mCustomScrollbar("update ").mCustomScrollbar('scrollTo', 'bottom', {
+        $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
             scrollInertia: 10,
             timeout: 0
         });
@@ -166,9 +166,9 @@
         d = new Date()
         if (m != d.getMinutes()) {
             m = d.getMinutes();
-            $('<div class="timestamp ">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
-            $('<div class="checkmark-sent-delivered ">&check;</div>').appendTo($('.message:last'));
-            $('<div class="checkmark-read ">&check;</div>').appendTo($('.message:last'));
+            $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+            $('<div class="checkmark-sent-delivered">&check;</div>').appendTo($('.message:last'));
+            $('<div class="checkmark-read">&check;</div>').appendTo($('.message:last'));
         }
     }
 
@@ -177,7 +177,7 @@
         if ($.trim(msg) == '') {
             return false;
         }
-        $('<div class="message message-personal ">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
+        $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
         setDate();
         $('.message-input').val(null);
         updateScrollbar();
@@ -209,12 +209,12 @@
         if ($('.message-input').val() != '') {
             return false;
         }
-        $('<div class="message loading new "><figure class="avatar "><img src="{{ asset('customer/images/img-logo/logo-nen-trang-GH.png') }} " /></figure><span></span></div>').appendTo($('.mCSB_container'));
+        $('<div class="message loading new "><figure class="avatar"><img src="{{ asset('customer/images/img-logo/logo-nen-trang-GH.png') }}" /></figure><span></span></div>').appendTo($('.mCSB_container'));
         updateScrollbar();
 
         setTimeout(function() {
             $('.message.loading').remove();
-            $('<div class="message new "><figure class="avatar "><img src="{{ asset('customer/images/img-logo/logo-nen-trang-GH.png') }}" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
+            $('<div class="message new "><figure class="avatar"><img src="{{ asset('customer/images/img-logo/logo-nen-trang-GH.png') }}" /></figure>' + Fake[i] + '</div>').appendTo($('.mCSB_container')).addClass('new');
             setDate();
             updateScrollbar();
             i++;
