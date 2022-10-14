@@ -83,12 +83,9 @@ p {
     margin-bottom: 10px;
 }
 
-#nav {
-    padding-left: 0;
-}
-
 #nav .subnav a {
     padding: 0 12px;
+    line-height: 60px;
     font-size: 13px;
     font-weight: bold;
 }
@@ -185,10 +182,11 @@ p {
     position: relative;
 }
 
+
 .title {
     display: flex;
-    margin-top: 50px;
-    background-image: url('http://127.0.0.1:8000/customer/images/img-bg-title.jpg');
+    margin-top: 70px;
+    background-image: url('../customer/images/img-bg-title.jpg');
     height: 275px;
     justify-content: center;
     align-items: center;
@@ -430,7 +428,7 @@ input {
 }
 
 #footer {
-    background-image: url('http://127.0.0.1:8000/customer/images/img-product/footer.jpg');
+    background-image: url('../customer/images/img-product/footer.jpg');
     height: auto;
     font-size: 16px;
 }
@@ -462,7 +460,10 @@ input {
     padding-bottom: 15px;
 }
 
-#footer a {
+#footer a,
+#footer ul li,
+#footer i,
+.footer-title {
     color: #000;
 }
 
@@ -560,7 +561,7 @@ input {
     top: 70px;
     left: 70px;
     position: absolute;
-    background: rgba(30, 30, 30, 0.1) url('http://127.0.0.1:8000/customer/images/img-product/phone.png') no-repeat center center;
+    background: rgba(30, 30, 30, 0.1) url('../customer/images/img-product/phone.png') no-repeat center center;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -1441,7 +1442,7 @@ screen and (max-width: 450px) {
     }
     #nav .subnav a {
         line-height: 0;
-        padding: 5px 40px;
+        padding: 5px 20px;
     }
     .button-cart {
         width: 130px;
@@ -1479,6 +1480,7 @@ screen and (max-width: 450px) {
     #footer ul li,
     .footer-title {
         font-size: 13px;
+        color: #000;
     }
     .footer-title {
         height: 100%;

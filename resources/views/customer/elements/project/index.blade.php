@@ -32,7 +32,7 @@
 
                                 <div class="portfolio-item__link-block ">
 
-                                    <a class="portfolio-item__link " href="VP-Glasshouse.html" title="Xem thêm ">
+                                    <a class="portfolio-item__link " href="{{ route('customer.project.detail', 1) }}" title="Xem thêm ">
                                         <i class="material-icons fa fa-link "></i>
                                     </a>
 
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-title"><a href="VP-Glasshouse.html">Văn phòng Glasshouse</a> </div>
+                    <div class="project-title"><a href="{{ route('customer.project.detail', 1) }}">Văn phòng Glasshouse</a> </div>
                     <span class="project-description ">
                             <p> <strong>Địa chỉ: </strong>Nguyệt Quế 25-20, Vinhomes Riverside The Harmony</p>
                         </span>
@@ -61,7 +61,7 @@
 
                                 <div class="portfolio-item__link-block ">
 
-                                    <a class="portfolio-item__link " href="project-BT-A8-XanhVilla.html" title="Xem thêm ">
+                                    <a class="portfolio-item__link " href="{{ route('customer.project.detail', 1) }}" title="Xem thêm ">
                                         <i class="material-icons fa fa-link "></i>
                                     </a>
 
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-title "><a href="project-BT-A8-XanhVilla.html">Biệt thự A8 Xanh Villas</a></div>
+                    <div class="project-title "><a href="{{ route('customer.project.detail', 1) }}">Biệt thự A8 Xanh Villas</a></div>
                     <span class="project-description ">
                             <p> <strong>Địa chỉ: </strong>Hà Nội</p>
                         </span>

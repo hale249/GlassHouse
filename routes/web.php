@@ -74,4 +74,8 @@ Route::group(['namespace' => 'Customer', 'as' => 'customer.'], function () {
     Route::post('/dang-nhap', [\App\Http\Controllers\Customer\AuthController::class, 'login'])->name('login');
 
     Route::post('/dang-ky', [\App\Http\Controllers\Customer\AuthController::class, 'register'])->name('register');
+
+    Route::get('/cua-nhom-roto', [\App\Http\Controllers\Customer\ProductRotoController::class, 'cuaNhomRoto'])->name('product.cuanhomroto');
+
+    Route::get('/phu-kien-roto', [\App\Http\Controllers\Customer\ProductRotoController::class, 'phuKienRoto'])->name('product.phukienroto');
 });

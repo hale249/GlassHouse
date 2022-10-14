@@ -71,12 +71,12 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="{{ route('customer.product.detail', 1) }}" style="color: #cf2e2e">sản phẩm ROTO <i class="fa fa-angle-down"></i></a>
+            <li><a href="#" style="color: #cf2e2e">sản phẩm ROTO <i class="fa fa-angle-down"></i></a>
                 <ul class="subnav">
                     <li>
-                        <a href="{{ route('customer.product.detail', 1) }}" style="color: #cf2e2e">Cửa nhôm Rotoi</a></li>
+                        <a href="{{ route('customer.product.cuanhomroto') }}" style="color: #cf2e2e">Cửa nhôm Rotoi</a></li>
                     <li>
-                        <a href="{{ route('customer.product.detail', 1) }}" style="color: #cf2e2e">Phụ kiện Roto</a></li>
+                        <a href="{{ route('customer.product.phukienroto') }}" style="color: #cf2e2e">Phụ kiện Roto</a></li>
                 </ul>
             </li>
             <li>
