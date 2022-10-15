@@ -28,7 +28,7 @@
 
         <div class="product">
             <div class="product-image">
-                <img src="{{ asset('customer/images/img-product/CDMC/CDMC-5.png') }}">
+                <img src="{{ asset('customer/images/img-product/CDMC/CDMC-MatCat-2.jpg') }}">
             </div>
             <div class="product-details">
                 <div class="product-title">Cửa đi một cánh</div>
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <button class="checkout " onclick="location.href='../html/payment.html'">Thanh Toán</button>
+        <button class="checkout"><a href="{{ route('customer.payment') }}">Thanh Toán</a></button>
 
     </div>
 @endsection

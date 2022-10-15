@@ -107,7 +107,7 @@
                         </tfoot>
                     </table>
                 </div>
-                <div class="button"><a class="btn" href="#">Thêm vào giỏ hàng</a></div>
+                <div class="button"><a class="btn" href="{{ route('customer.cart.index') }}">Thêm vào giỏ hàng</a></div>
             </div>
         </div>
     </div>

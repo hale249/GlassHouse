@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\ProjectCategory;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $proCategories = ProjectCategory::query()->get(['id', 'name']);
+
+        // Sharing is caring
+//        View::share('projectCategories',$proCategories);
     }
 }

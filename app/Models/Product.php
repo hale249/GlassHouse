@@ -6,6 +6,7 @@ use App\Models\Traits\Attributes\ProductAttribute;
 use App\Models\Traits\Relationships\ProductRelationship;
 use App\Models\Traits\Slug;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
@@ -31,4 +32,9 @@ class Product extends Model
         'price' => 'double',
         'quantity' => 'integer',
     ];
+
+    public function productImages(): HasMany
+    {
+        return $this->hasMany(ProductImage::class, 'product_id', 'id');
+    }
 }

@@ -12,6 +12,15 @@
                     <small class="text-muted">Tạo mới</small>
                 </h4>
                 <hr>
+
+                <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="name">Tên</label>
+
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Nhập tên..." maxlength="191" required="" autofocus="">
+                    </div><!--col-->
+                </div>
+
                 <div class="form-group row">
                     <label class="col-md-2 form-control-label" for="category_id">Danh mục</label>
 
@@ -26,14 +35,6 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="name">Tên</label>
-
-                    <div class="col-md-10">
-                        <input class="form-control" type="text" name="name" id="name" value="{{ old('name') }}" placeholder="Nhập tên..." maxlength="191" required="" autofocus="">
-                    </div><!--col-->
-                </div>
-
-                <div class="form-group row">
                     <label class="col-md-2 form-control-label" for="price">Giá</label>
 
                     <div class="col-md-10">
@@ -42,10 +43,18 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="image">Hình ảnh</label>
+                    <label class="col-md-2 form-control-label" for="image">Hình ảnh chính</label>
 
                     <div class="col-md-10">
                         <input type="file" name="image" id="image">
+                    </div><!--col-->
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="images">Hình ảnh mở rộng</label>
+
+                    <div class="col-md-10">
+                        <input type="file" name="images[]" id="images">
                     </div><!--col-->
                 </div>
 

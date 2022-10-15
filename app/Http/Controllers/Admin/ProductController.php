@@ -14,6 +14,7 @@ use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ProductController extends Controller
@@ -30,7 +31,7 @@ class ProductController extends Controller
         $data = $request->all(); //Get thông tin dữ liệu gửi lên từ Client
         $products = Product::query() //Select  tất cả thông tin trong bảng Product và lấy theo tương ứng là User và Category
             ->with('user', 'category');
-        $userId = !empty($data['user_id']) ? $data['user_id'] : null; 
+        $userId = !empty($data['user_id']) ? $data['user_id'] : null;
         if (!empty($data['name'])) {
             $products = $products->where('name', 'like', '%' . $data['name'] . '%');
         }
@@ -86,10 +87,27 @@ class ProductController extends Controller
             $data['image'] = $this->uploadFile($request->file('image'), 'products');
         }
 
+        $images = [];
+        if ($request->hasFile('images')) {
+            foreach($request->file('images') as $file){
+                $images[] = [
+                    'name' => $file->getClientOriginalName(),
+                    'path' => $this->uploadFile($file, 'products')
+                ];
+            }
+        }
+
         $data['user_id'] = auth()->id();
 //        $data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
-        Product::query()
-            ->create($data);
+        DB::transaction(function () use ($data, $images) {
+            $product = Product::query()
+                ->create($data);
+
+            if(!empty($images)) {
+                $product->productImages()->create($images);
+            }
+        });
+
 
         return redirect()->route('admin.product.index')->with('flash_success', 'Tạo sản phẩm thành công');
     }

@@ -78,4 +78,7 @@ Route::group(['namespace' => 'Customer', 'as' => 'customer.'], function () {
     Route::get('/cua-nhom-roto', [\App\Http\Controllers\Customer\ProductRotoController::class, 'cuaNhomRoto'])->name('product.cuanhomroto');
 
     Route::get('/phu-kien-roto', [\App\Http\Controllers\Customer\ProductRotoController::class, 'phuKienRoto'])->name('product.phukienroto');
+
+    Route::get('/thanh-toan', [\App\Http\Controllers\Customer\PaymentController::class, 'index'])->name('payment');
+    Route::get('/thanh-toan/thanh-cong', [\App\Http\Controllers\Customer\PaymentController::class, 'success'])->name('payment.success');
 });

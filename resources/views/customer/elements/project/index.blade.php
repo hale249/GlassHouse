@@ -17,6 +17,8 @@
 
     <div class="container">
         <div class="row">
+            @if($projects->isNotEmpty())
+                @foreach($projects as $project)
             <div class="col-4">
                 <div class="item-product">
                     <!-- portfolio item -->
@@ -26,7 +28,7 @@
 
                         <div class="portfolio-item__info ">
 
-                            <h3 class="portfolio-item__header ">Văn phòng Glasshouse</h3>
+                            <h3 class="portfolio-item__header ">{{ $project->name }}</h3>
 
                             <div class="portfolio-item__links ">
 
@@ -40,12 +42,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-title"><a href="{{ route('customer.project.detail', 1) }}">Văn phòng Glasshouse</a> </div>
+                    <div class="project-title"><a href="{{ route('customer.project.detail', 1) }}">{{ $project->name }}</a> </div>
                     <span class="project-description ">
-                            <p> <strong>Địa chỉ: </strong>Nguyệt Quế 25-20, Vinhomes Riverside The Harmony</p>
+                            <p> <strong>Địa chỉ: </strong>{{ $project->address ?? '' }}</p>
                         </span>
                 </div>
             </div>
+                @endforeach
+            @endif
+
             <div class="col-4 ">
                 <div class="item-product ">
                     <!-- portfolio item -->

@@ -82,10 +82,11 @@
             <li>
                 <a href="{{ route('customer.project.index') }} ">CÔNG TRÌNH <i class="fa fa-angle-down "></i></a>
                 <ul class="subnav ">
-                    <li><a href="{{ route('customer.project.detail', 1) }}">Biệt thự</a></li>
-                    <li><a href="{{ route('customer.project.detail', 1) }}">Nhà phố</a></li>
-                    <li><a href="{{ route('customer.project.detail', 1) }}">Khách sạn</a></li>
-                    <li><a href="{{ route('customer.project.detail', 1) }}">Dự án</a></li>
+                    @if(!empty($projectCategories))
+                        @foreach($projectCategories as $category)
+                            <li><a href="{{ route('customer.project.index', ['categories_id' => $category->id]) }}">{{ $category->name }}</a></li>
+                        @endforeach
+                    @endif
                 </ul>
             </li>
             <li><a href="{{ route('customer.contact.index') }} ">LIÊN HỆ</a></li>
