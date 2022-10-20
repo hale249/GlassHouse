@@ -27,31 +27,32 @@
                     <a href=" ">Hotline | +84981961668</a>
                 </div>
                 <div class="contact-form col-sm-8 ">
-                    <form action="/action_page.php " class="needs-validation " novalidate>
+                    <form action="{{ route('customer.contact.create') }}" class="needs-validation " method="post">
+                        @csrf
                         <small style="margin-left: 250px;"></small>
                         <div class="form-group ">
                             <i class="fa fa-user"> &nbsp </i><label> Họ tên: </label>
-                            <input type="text" name="txtName" id="txtName" onblur="checkName()" placeholder="Họ và tên">
+                            <input type="text" name="name" id="txtName" onblur="checkName()" placeholder="Họ và tên">
                             <p id="errName"></p>
                         </div>
                         <div class="form-group ">
                             <i class="fa fa-phone"> &nbsp </i><label> Số điện thoại: </label>
-                            <input type="text" name="txtPhone" id="txtPhone" onblur="checkPhone()" placeholder="Số điện thoại">
+                            <input type="text" name="phone_number" id="txtPhone" onblur="checkPhone()" placeholder="Số điện thoại">
                             <p id="errPhone"></p>
                         </div>
                         <div class="form-group ">
                             <i class="fa fa-envelope-o">&nbsp </i><label> Gmail: </label>
-                            <input type="text" name="txtEmail" id="txtEmail" onblur="checkEmail()" placeholder="Gmail">
+                            <input type="text" name="email" id="txtEmail" onblur="checkEmail()" placeholder="Gmail">
                             <p id="errEmail"></p>
                         </div>
                         <div class="form-group ">
                             <i class="fa fa-home">&nbsp </i><label> Địa chỉ:</label>
-                            <input type="text" name="txtAdd" id="txtAdd" onblur="checkAdd()" placeholder="Địa chỉ công trình">
+                            <input type="text" name="address" id="txtAdd" onblur="checkAdd()" placeholder="Địa chỉ công trình">
                             <p id="errAdd"></p>
                         </div>
                         <div class="form-group ">
                             <i class="fa fa-commenting-o">&nbsp</i><label> Nội dung:</label><br>
-                            <textarea rows="6" name="txtMessage" id="txtMessage" onblur="checkMessage()" style="width: 100%;"></textarea><br>
+                            <textarea rows="6" name="content" id="txtMessage" onblur="checkMessage()" style="width: 100%;"></textarea><br>
                             <p id="errMessage"></p>
                         </div>
                         <button type="submit " class="btn btn-primary " style="width: 100%; ">Xác nhận</button>

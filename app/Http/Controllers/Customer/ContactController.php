@@ -20,7 +20,7 @@ class ContactController extends Controller
             'phone_number',
             'name',
             'address',
-            'description',
+            'content',
         ]);
 
         Contact::query()->create($data);

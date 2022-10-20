@@ -38,7 +38,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="categoty-item">
+                            <li class="category-item">
                                 <a href="" class="category-item__link">Cửa sổ</a>
                                 <ul class="category-sub-item">
                                     <li class="category-item">
