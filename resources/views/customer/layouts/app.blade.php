@@ -21,9 +21,6 @@
     <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     @yield('css')
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
-    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js "></script>
 
     <script src="{{ asset('customer/function.js') }}"></script>
 </head>
@@ -143,8 +140,6 @@
         </div>
     </div>
 </section>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js "></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js "></script>
 @yield('js')
 <script type="application/javascript">
     var $messages = $('.messages-content'),

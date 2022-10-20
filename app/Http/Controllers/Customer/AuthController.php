@@ -33,8 +33,6 @@ class AuthController extends Controller
 
     public function register(AuthRegisterRequest $request): \Illuminate\Http\RedirectResponse
     {
-        dd(2);
-        dd(2);
         $data = $request->only([
             'email',
             'name',
@@ -44,8 +42,7 @@ class AuthController extends Controller
         ]);
         $data['password'] = Hash::make($data['password']);
 
-        $customer = Customer::query()->create($data);
-        dd($customer);
+        Customer::query()->create($data);
 
         return redirect()->route('customer.home.index')->with('flash_success', 'Thành công');
     }

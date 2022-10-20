@@ -41,31 +41,35 @@
                             <td><strong>Tên</strong></td>
                             <td><strong>Hình ảnh</strong></td>
                             <td><strong>Số lượng</strong></td>
-                            <td><strong>Trạng thái</strong></td>
-                            <td><strong>Tạo lúc</strong></td>
-                            <td><strong>Hành động</strong></td>
+                            <td><strong>Màu sắc</strong></td>
+                            <td><strong>Loại nhôm</strong></td>
+                            <td><strong>Phụ kiện</strong></td>
+                            <td><strong>Loại kính</strong></td>
+                            <td><strong>Chiều dài</strong></td>
+                            <td><strong>Chiều rộng</strong></td>
+                            <td><strong>Số lượng</strong></td>
+                            <td><strong>Giá tiền</strong></td>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($categories as $category)
+                        @foreach($cartDetails as $detail)
                             <tr>
-                                <td>{{ $category->name }}</td>
+                                <td>{{ $detail->name }}</td>
                                 <td>
-                                    <img src="{{ $category->image }}" width="100">
+                                    <img src="{{ $detail->image }}" width="100">
                                 </td>
-                                @can(\App\Helpers\PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY)
-                                    <td>{{ $category->user->name }}</td>
-                                @endcan
-                                <td>{!! $category->status_label !!}</td>
-                                <td>{{ $category->created_at }}</td>
-                                <td>{!! $category->action_buttons !!}</td>
+                                    <td>{{ $detail->quantity }}</td>
+                                <td>{{ $detail->color->name ?? '' }}</td>
+                                <td>{{ $detail->accessory->name ?? '' }}</td>
+                                <td>{{ $detail->glassType->name ?? '' }}</td>
+                                <td>{{ $detail->aluminums->name ?? '' }}</td>
+                                <td>{{ $detail->product_longs }}</td>
+                                <td>{{ $detail->product_width }}</td>
+                                <td>{{ $detail->price }}</td>
                             </tr>
                         @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="text-right">
-                    {{ $categories->links() }}
                 </div>
             </div>
         </div>

@@ -21,9 +21,9 @@ class CartController extends Controller
         } else {
             $cart[$id] = [
                 "name" => $request->name,
-                "quantity" => 1,
+                "quantity" => $request->quantity ?? 1,
                 "price" => $request->price,
-                "image" => $request->image,
+                "image" => $request->image ?? '',
                 "product_color_id" => $request->product_color_id,
                 "product_glass_id" => $request->product_glass_id,
                 "product_aluminum_id" => $request->product_aluminum_id,

@@ -34,7 +34,7 @@
                     </p>
                 </div>
 
-                <select class="select-detail" id="select-alu " required="required">
+                <select class="select-detail" id="select-alu" required="required">
                     <option value="" disabled="disabled" selected="selected">Loại nhôm</option>
                     @foreach($product->productAluminums as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>

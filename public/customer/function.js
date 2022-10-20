@@ -120,8 +120,24 @@ function datatransfer() {
     const elementSelectColor = document.getElementById("select-color");
     const colorValue = elementSelectColor.value || '';
     const labelColor = elementSelectColor.options[elementSelectColor.selectedIndex].innerHTML || '';
-    debugger;
-    debugger;
+
+    const elementSelectAlu = document.getElementById("select-alu");
+    const aluValue = elementSelectAlu.value || '';
+    const labelAlu = elementSelectAlu.options[elementSelectAlu.selectedIndex].innerHTML || '';
+
+
+    const elementAccessories = document.getElementById("select-accesfa-stack");
+    const accessoriesValue = elementAccessories.value || '';
+    const labelAccessories = elementAccessories.options[elementAccessories.selectedIndex].innerHTML || '';
+
+    const elementGlassType = document.getElementById("select-glass");
+    const glassValue = elementGlassType.value || '';
+    const labelGlass = elementGlassType.options[elementGlassType.selectedIndex].innerHTML || '';
+
+    const txtlenght = document.getElementById('txtlenght').value || 0;
+    const txtwidth = document.getElementById('txtwidth').value || 0;
+    const txtnumber = document.getElementById('txtnumber').value || 0;
+
     var x = document.getElementById("form-1");
     var y = document.getElementById("form-2");
     x.style.display = "none";

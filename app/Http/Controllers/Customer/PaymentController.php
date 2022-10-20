@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
@@ -11,7 +12,7 @@ class PaymentController extends Controller
         return view('customer.elements.payment.index');
     }
 
-    public function success()
+    public function success(Request $request)
     {
         return view('customer.elements.payment.success');
     }

@@ -17,7 +17,7 @@ class CreateCartDetailsTable extends Migration
             $table->id();
             $table->unsignedInteger('cart_id');
             $table->unsignedInteger('product_id');
-            $table->unsignedInteger('product_image_id');
+            $table->unsignedInteger('product_image_id')->nullable();
             $table->integer('quantity')->default(0)->nullable();
             $table->unsignedInteger('product_color_id');
             $table->unsignedInteger('product_glass_id')->nullable();
