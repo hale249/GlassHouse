@@ -24,7 +24,7 @@ class AuthController extends Controller
             'password'
         ]);
         $remember = $request->input('remember_me');
-        if (Auth::guard('customer')->attempt($credentials, $remember)) {
+        if (Auth::guard('customers')->attempt($credentials, $remember)) {
             return redirect()->route('customer.home.index')->with('flash_success', 'Thành công');
         }
 
@@ -33,6 +33,8 @@ class AuthController extends Controller
 
     public function register(AuthRegisterRequest $request): \Illuminate\Http\RedirectResponse
     {
+        dd(2);
+        dd(2);
         $data = $request->only([
             'email',
             'name',
@@ -42,7 +44,8 @@ class AuthController extends Controller
         ]);
         $data['password'] = Hash::make($data['password']);
 
-        Customer::query()->create($data);
+        $customer = Customer::query()->create($data);
+        dd($customer);
 
         return redirect()->route('customer.home.index')->with('flash_success', 'Thành công');
     }

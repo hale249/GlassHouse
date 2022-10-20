@@ -163,12 +163,10 @@ class ProductController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
     public function show($id): View
     {
         $product = Product::query()->findOrFail($id);
-        $this->authorize('view', $product);
         return view('admin.elements.product.show', compact('product'));
     }
 

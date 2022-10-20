@@ -13,16 +13,16 @@ class ProjectController extends Controller
     public function index(Request $request)
     {
         $categoryId = $request->get('category_id');
-        $project = Project::query()->where('is_active', true);
+        $projects = Project::query()->where('is_active', true);
         if (!empty($categoryId)) {
             $category = ProjectCategory::query()->find($categoryId);
             if (!empty($category)) {
-                $project = $project->where('category_id', $categoryId);
+                $projects = $projects->where('category_id', $categoryId);
             }
         }
 
-        $project = $project->get();
-        return view('customer.elements.project.index', compact('project'));
+        $projects = $projects->get();
+        return view('customer.elements.project.index', compact('projects'));
     }
 
     public function detail($id)

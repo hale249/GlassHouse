@@ -16,11 +16,12 @@ class ProductController extends Controller
             'category_id',
             'name',
         ]);
-        $products = Product::query()->where('is_disabled', false);
+        $categories = Category::query()->get();
+        $products = Product::query()->where('is_active', true);
         if (!empty($data['name'])) {
             $products = $products->where('name', 'like', '%' . $data['name'] . '%');
         }
-        if (empty($data['category_id'])) {
+        if (!empty($data['category_id'])) {
             $category = Category::query()->find($data['category_id']);
             if (!empty($category)) {
                 $products = $products->where('category_id', $data['category_id']);
@@ -28,7 +29,7 @@ class ProductController extends Controller
         }
 
         $products = $products->paginate(Constant::DEFAULT_PER_PAGE);
-        return view('customer.elements.product.index', compact('products'));
+        return view('customer.elements.product.index', compact(['products', 'categories']));
     }
 
     public function detail($id)
@@ -42,6 +43,7 @@ class ProductController extends Controller
             'productGlass',
         ])->findOrFail($id);
 
-        return view('customer.elements.product.detail', compact('product'));
+        $productRelates = Product::query()->where('id', '!=', $id)->limit(4)->get();
+        return view('customer.elements.product.detail', compact(['product', 'productRelates']));
     }
 }

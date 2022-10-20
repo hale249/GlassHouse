@@ -23,7 +23,7 @@ class ContactController extends Controller
             'content',
         ]);
 
-        Contact::query()->create($data);
+        $contact = Contact::query()->create($data);
 
         return redirect()->back();
     }

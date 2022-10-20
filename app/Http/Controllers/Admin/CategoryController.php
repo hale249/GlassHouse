@@ -74,7 +74,7 @@ class CategoryController extends Controller
         Category::query() //save vào db
             ->create($data);
 
-        return redirect()->route('admin.category.index')->with('flash_success', __('labels.pages.admin.category.messages.create_success')); // trả về trang List
+        return redirect()->route('admin.category.index')->with('flash_success', 'Tạo thành công'); // trả về trang List
     }
 
     /**
@@ -127,7 +127,7 @@ class CategoryController extends Controller
 
         $category->update($data);
 
-        return redirect()->route('admin.category.index')->with('flash_success', __('labels.pages.admin.category.messages.update_success'));
+        return redirect()->route('admin.category.index')->with('flash_success', 'Cập nhật thành công');
     }
 
     /**
@@ -143,6 +143,6 @@ class CategoryController extends Controller
         $this->authorize('delete', $category);
         $category->delete();
 
-        return redirect()->route('admin.category.index')->with('flash_success', __('labels.pages.admin.category.messages.delete_success'));
+        return redirect()->route('admin.category.index')->with('flash_success', 'Xóa thành công');
     }
 }

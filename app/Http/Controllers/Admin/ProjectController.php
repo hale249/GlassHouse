@@ -15,6 +15,7 @@ use App\Models\ProjectCategory;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class ProjectController extends Controller
@@ -76,12 +77,30 @@ class ProjectController extends Controller
             'address',
             'type_project',
             'seo_text',
-            'category_id'
+            'category_id',
         ]);
 
         $data['created_by'] = auth()->id();
-        Project::query()
-            ->create($data);
+        if ($request->hasFile('image')) {
+            $data['image'] = $this->uploadFile($request->file('image'), 'products');
+        }
+
+        $images = [];
+        if ($request->hasFile('images')) {
+            foreach($request->file('images') as $file){
+                $images[] = [
+                    'name' => $file->getClientOriginalName(),
+                    'path' => $this->uploadFile($file, 'products')
+                ];
+            }
+        }
+        DB::transaction(function () use ($data, $images) {
+            $project = Project::query()
+                ->create($data);
+            if(!empty($images)) {
+                $project->projectImages()->saveMany($images);
+            }
+        });
 
         return redirect()->route('admin.project.index')->with('flash_success', 'Tạo dự án thành công');
     }

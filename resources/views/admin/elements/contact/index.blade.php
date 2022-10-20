@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ $contact->name }}</td>
                                 <td>
-                                    <img src="{{ $contact->phone_number }}" width="100">
+                                    {{ $contact->phone_number }}
                                 </td>
                                 <td>{{ $contact->email }}</td>
                                 <td>{{ $contact->address }}</td>

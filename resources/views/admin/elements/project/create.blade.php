@@ -34,6 +34,22 @@
                 </div>
 
                 <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="image">Hình ảnh chính</label>
+
+                    <div class="col-md-10">
+                        <input type="file" name="image" id="image">
+                    </div><!--col-->
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="images">Hình ảnh mở rộng</label>
+
+                    <div class="col-md-10">
+                        <input type="file" name="images[]" id="images" multiple="multiple">
+                    </div><!--col-->
+                </div>
+
+                <div class="form-group row">
                     <label class="col-md-2 form-control-label" for="seo_text">SEO bài</label>
 
                     <div class="col-md-10">

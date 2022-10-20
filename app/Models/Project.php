@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\Attributes\ActiveLabelAttribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model
 {
@@ -14,7 +15,18 @@ class Project extends Model
     ];
     protected $table = 'projects';
 
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'description_short',
+        'address',
+        'is_active',
+        'type_project',
+        'seo_text',
+        'content',
+        'created_by',
+        'category_id',
+        'image',
+    ];
 
 
     public function category(): BelongsTo
@@ -25,5 +37,10 @@ class Project extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function projectImages()
+    {
+        return $this->hasMany(ProjectImage::class, 'project_id', 'id');
     }
 }

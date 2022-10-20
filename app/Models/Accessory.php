@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Accessory extends Model
 {
-    protected $table = 'colors';
+    protected $table = 'accessories';
 
     protected $fillable = [
         'name', 'is_active', 'created_by'

@@ -28,7 +28,7 @@ class ContactSoreRequest extends FormRequest
             'phone_number' => 'required',
             'name' => 'required',
             'address' => 'required',
-            'description' => 'required',
+            'content' => 'required',
         ];
     }
 }

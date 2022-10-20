@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Danh mục - ' . $category->name)
+@section('title', 'Liên hệ - ' . $contact->name)
 
 @section('content')
     <div class="card">

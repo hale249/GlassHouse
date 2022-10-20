@@ -28,7 +28,6 @@ class AuthRegisterRequest extends FormRequest
             'password' => 'required|min:6|confirmed',
             'name' => 'required',
             'phone_number' => 'required',
-            'address' => 'required',
         ];
     }
 }

@@ -22,7 +22,7 @@
                     <nav class="category">
                         <h3 class="category__heading"><i class="fa fa-list"></i> Danh mục</h3>
                         <ul class="category-list">
-                            <li class="categoty-item category-item--active">
+                           {{-- <li class="categoty-item category-item--active">
                                 <a href="" class="category-item__link">Cửa đi</a>
                                 <ul class="category-sub-item">
                                     <li class="category-item">
@@ -54,10 +54,13 @@
                             </li>
                             <li class="category-item">
                                 <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa lùa</a>
-                            </li>
+                            </li>--}}
+
+                            @foreach($categories as $category)
                             <li class="category-item">
-                                <a href="{{ route('customer.product.detail', 1) }}" class="category-item__link">Cửa xếp gấp</a>
+                                <a href="{{ route('customer.product.detail', $category->id) }}" class="category-item__link">{{ $category->name }}</a>
                             </li>
+                            @endforeach
                         </ul>
 
                     </nav>
@@ -100,18 +103,20 @@
                     <div class="home-product">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-3 columns ">
-                                    <a href="{{ route('customer.product.detail', 1) }}">
-                                        <div class="product-img ">
-                                            <img src="{{ asset('customer/images/img-product/CDMC/CDMC.png') }}" alt=" "
-                                                 style="background-size: cover; ">
-                                        </div>
-                                        <div class="product-content ">
-                                            <h4>Cửa đi mở quay một cánh</h4>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-3 columns ">
+                                @foreach($products as $product)
+                                    <div class="col-md-3 columns ">
+                                        <a href="{{ route('customer.product.detail', $product->id) }}">
+                                            <div class="product-img ">
+                                                <img src="{{ $product->image }}" alt=" "
+                                                     style="background-size: cover; ">
+                                            </div>
+                                            <div class="product-content ">
+                                                <h4>{{ $product->name }}</h4>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                              {{--  <div class="col-md-3 columns ">
                                     <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">
                                             <img src="{{ asset('customer/images/img-product/CDNC/CDNC-3.png') }}" alt=" ">
@@ -223,7 +228,7 @@
                                             <h4>Vách kính mặt dựng</h4>
                                         </div>
                                     </a>
-                                </div>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
@@ -231,38 +236,39 @@
             </div>
         </div>
 
-        <ul class="pagination home-product__pagination">
-            <li class="pagination-item">
-                <a href="" class="pagination-item__link">
-                    <i class="pagination-item_icon fa fa-angle-left"></i>
-                </a>
-            <li class="pagination-item pagination-item--active">
-                <a href="" class="pagination-item__link">1</a>
-            </li>
-            <li class="pagination-item">
-                <a href="" class="pagination-item__link">2</a>
-            </li>
-            <li class="pagination-item">
-                <a href="" class="pagination-item__link">3</a>
-            </li>
-            <li class="pagination-item">
-                <a href="" class="pagination-item__link">4</a>
-            </li>
-            <li class="pagination-item">
-                <a href="" class="pagination-item__link">5</a>
-            </li>
-            <li class="pagination-item">
-                <a href="" class="pagination-item__link">...</a>
-            </li>
-            <li class="pagination-item">
-                <a href="" class="pagination-item__link">12</a>
-            </li>
-            <li class="pagination-item">
-                <a href="" class="pagination-item__link">
-                    <i class="pagination-item_icon fa fa-angle-right"></i>
-                </a>
-            </li>
-        </ul>
+        {{ $products->links() }}
+{{--        <ul class="pagination home-product__pagination">--}}
+{{--            <li class="pagination-item">--}}
+{{--                <a href="" class="pagination-item__link">--}}
+{{--                    <i class="pagination-item_icon fa fa-angle-left"></i>--}}
+{{--                </a>--}}
+{{--            <li class="pagination-item pagination-item--active">--}}
+{{--                <a href="" class="pagination-item__link">1</a>--}}
+{{--            </li>--}}
+{{--            <li class="pagination-item">--}}
+{{--                <a href="" class="pagination-item__link">2</a>--}}
+{{--            </li>--}}
+{{--            <li class="pagination-item">--}}
+{{--                <a href="" class="pagination-item__link">3</a>--}}
+{{--            </li>--}}
+{{--            <li class="pagination-item">--}}
+{{--                <a href="" class="pagination-item__link">4</a>--}}
+{{--            </li>--}}
+{{--            <li class="pagination-item">--}}
+{{--                <a href="" class="pagination-item__link">5</a>--}}
+{{--            </li>--}}
+{{--            <li class="pagination-item">--}}
+{{--                <a href="" class="pagination-item__link">...</a>--}}
+{{--            </li>--}}
+{{--            <li class="pagination-item">--}}
+{{--                <a href="" class="pagination-item__link">12</a>--}}
+{{--            </li>--}}
+{{--            <li class="pagination-item">--}}
+{{--                <a href="" class="pagination-item__link">--}}
+{{--                    <i class="pagination-item_icon fa fa-angle-right"></i>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--        </ul>--}}
     </div>
 @endsection
 

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Traits\Slug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -22,7 +23,7 @@ class Product extends Model
         'description',
         'price',
         'quantity',
-        'is_disabled'
+        'is_active'
     ];
 
     protected $casts = [
@@ -47,23 +48,23 @@ class Product extends Model
         return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
 
-    public function productAccessories(): HasMany
+    public function productAccessories(): BelongsToMany
     {
-        return $this->hasMany(ProductAccessory::class, 'product_id', 'id');
+        return $this->belongsToMany(Accessory::class, ProductAccessory::class, 'product_id', 'accessory_id');
     }
 
-    public function productAluminums(): HasMany
+    public function productAluminums(): BelongsToMany
     {
-        return $this->hasMany(ProductAluminum::class, 'product_id', 'id');
+        return $this->belongsToMany(AluminumType::class, ProductAluminum::class, 'product_id', 'aluminum_id');
     }
 
-    public function productColors(): HasMany
+    public function productColors(): BelongsToMany
     {
-        return $this->hasMany(ProductColor::class, 'product_id', 'id');
+        return $this->belongsToMany(Color::class, ProductColor::class, 'product_id', 'color_id');
     }
 
-    public function productGlass(): HasMany
+    public function productGlass(): BelongsToMany
     {
-        return $this->hasMany(ProductGlass::class, 'product_id', 'id');
+        return $this->belongsToMany(GlassType::class, ProductGlass::class, 'product_id', 'glass_id');
     }
 }

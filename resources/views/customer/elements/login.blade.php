@@ -16,23 +16,21 @@
 <body>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
-        <form action="#">
+        <form action="{{ route('customer.register') }}" method="post">
+            @csrf
             <h1>Đăng ký</h1>
-{{--            <div class="social-container">--}}
-{{--                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>--}}
-{{--                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>--}}
-{{--                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>--}}
-{{--            </div>--}}
             <span>hoặc đăng ký bằng tài khoản</span>
-            <input type="text" placeholder="Họ tên" />
-            <input type="text" placeholder="Số điện thoại" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Mật khẩu" />
-            <button>Đăng ký</button>
+            <input type="text" name="name" placeholder="Họ tên" />
+            <input type="text" name="phone_number" placeholder="Số điện thoại" />
+            <input type="email" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Mật khẩu" />
+            <input type="text" name="address" placeholder="Địa chỉ" />
+            <button type="submit">Đăng ký</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="#">
+        <form action="{{ route('customer.login') }}" method="post">
+            @csrf
             <h1>Đăng nhập</h1>
             <div class="social-container">
                 <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -40,10 +38,10 @@
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>hoặc sử dụng tài khoản của bạn</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Mật khẩu" />
+            <input type="email" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Mật khẩu" />
             <a href="#forget__account" onclick="forget__account()" class="forget__button">Quên mật khẩu?</a>
-            <button>Đăng nhập</button>
+            <button type="submit">Đăng nhập</button>
         </form>
     </div>
     <div class="overlay-container">
