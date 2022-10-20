@@ -58,7 +58,7 @@
 
                             @foreach($categories as $category)
                             <li class="category-item">
-                                <a href="{{ route('customer.product.detail', $category->id) }}" class="category-item__link">{{ $category->name }}</a>
+                                <a href="{{ route('customer.product.index', ['category_id' => $category->id]) }}" class="category-item__link">{{ $category->name }}</a>
                             </li>
                             @endforeach
                         </ul>
@@ -103,19 +103,23 @@
                     <div class="home-product">
                         <div class="container">
                             <div class="row">
-                                @foreach($products as $product)
-                                    <div class="col-md-3 columns ">
-                                        <a href="{{ route('customer.product.detail', $product->id) }}">
-                                            <div class="product-img ">
-                                                <img src="{{ $product->image }}" alt=" "
-                                                     style="background-size: cover; ">
-                                            </div>
-                                            <div class="product-content ">
-                                                <h4>{{ $product->name }}</h4>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endforeach
+                                @if(!empty($products))
+                                    @foreach($products as $product)
+                                        <div class="col-md-3 columns ">
+                                            <a href="{{ route('customer.product.detail', $product->id) }}">
+                                                <div class="product-img ">
+                                                    <img src="{{ $product->image }}" alt=" "
+                                                         style="background-size: cover; ">
+                                                </div>
+                                                <div class="product-content ">
+                                                    <h4>{{ $product->name }}</h4>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    Sản phẩm trống
+                                @endif
                               {{--  <div class="col-md-3 columns ">
                                     <a href="{{ route('customer.product.detail', 1) }}">
                                         <div class="product-img ">

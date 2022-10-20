@@ -101,57 +101,58 @@ class ProductController extends Controller
             }
         }
 
-        //insert color
-        $colorIds = [];
-        if (!empty($data['colors'])) {
-            foreach ($data['colors'] as $color) {
-                $colorInstance = Color::query()->firstOrCreate(['name' => $color]);
-                $colorIds[] = $colorInstance->id;
-            }
-        }
-
-        //insert glass type
-        $glassTypeIds = [];
-        if (!empty($data['glass_types'])) {
-            foreach ($data['glass_types'] as $type) {
-                $instance = GlassType::query()->firstOrCreate(['name' => $type]);
-                $glassTypeIds[] = $instance->id;
-            }
-        }
-
-        //insert glass type
-        $aluminumIds = [];
-        if (!empty($data['aluminums'])) {
-            foreach ($data['aluminums'] as $item) {
-                //insert tags
-                $instance = ProductAluminum::query()->firstOrCreate(['name' => $item]);
-                $aluminumIds[] = $instance->id;
-            }
-        }
-
-        //insert glass type
-        $accessoriesIds = [];
-        if (!empty($data['aluminums'])) {
-            foreach ($data['aluminums'] as $item) {
-                //insert tags
-                $instance = ProductAccessory::query()->firstOrCreate(['name' => $item]);
-                $accessoriesIds[] = $instance->id;
-            }
-        }
+        $colors = Color::query()->get();
+        $glassTypes = GlassType::query()->get();
+        $aluminums = \App\Models\AluminumType::query()->get();
+        $accessories = \App\Models\Accessory::query()->get();
         $data['user_id'] = auth()->id();
 //        $data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
-        DB::transaction(function () use ($data, $images, $accessoriesIds, $aluminumIds, $glassTypeIds, $colorIds) {
+        DB::transaction(function () use ($data, $images, $colors, $aluminums, $glassTypes, $accessories) {
             $product = Product::query()
                 ->create($data);
 
             if(!empty($images)) {
-                $product->productImages()->create($images);
+               foreach ($images as $image) {
+                   \App\Models\ProductImage::query()
+                       ->updateOrCreate([
+                           'product_id' => $product->id,
+                           'name' => $image['name'],
+                           'path' => $image['path'],
+                       ]);
+               }
             }
 
-            $product->productColors()->attach($colorIds);
-            $product->productAccessories()->attach($accessoriesIds);
-            $product->productAluminums()->attach($aluminumIds);
-            $product->productGlass()->attach($glassTypeIds);
+            foreach ($colors as $color) {
+                \App\Models\ProductColor::query()
+                    ->updateOrCreate([
+                        'product_id' => $product->id,
+                        'color_id' => $color->id
+                    ]);
+            }
+
+            foreach ($glassTypes as $item) {
+                \App\Models\ProductGlass::query()
+                    ->updateOrCreate([
+                        'product_id' => $product->id,
+                        'glass_id' => $item->id
+                    ]);
+            }
+
+            foreach ($aluminums as $item) {
+                \App\Models\ProductAluminum::query()
+                    ->updateOrCreate([
+                        'product_id' => $product->id,
+                        'aluminum_id' => $item->id
+                    ]);
+            }
+
+            foreach ($accessories as $item) {
+                \App\Models\ProductAccessory::query()
+                    ->updateOrCreate([
+                        'product_id' => $product->id,
+                        'accessory_id' => $item->id
+                    ]);
+            }
         });
 
 
@@ -175,12 +176,10 @@ class ProductController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
     public function edit($id): View
     {
         $product = Product::query()->findOrFail($id);
-        $this->authorize('update', $product);
         $categories = Category::query()->get();
         $colors = Color::query()->get();
         $glassTypes = GlassType::query()->get();

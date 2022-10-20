@@ -18,57 +18,44 @@
     <div class="container main-content">
         <div class="row">
             <div class="col-md-5">
-                <h1 class="info-title">Biệt thự A8 Xanh Villas</h1>
-                <p>Công trình Biệt thự A8 Xanh Villas được thiết kế không gian mở để chủ nhân có thể hòa mình vào thiên nhiên sân vườn một cách nhiều nhất có thể. Đặc biệt, chủ nhân đã chọn thiết kế
-                    <a href="{{ route('customer.project.detail', 1) }}">Cửa gấp trượt</a> để mở rộng tối đa diện tích không gian phía trong nhà. Dòng nhôm RUM độc quyền của Glasshouse mang đến cho căn biệt thự ngoại thất sang trọng, hiện đại.
+                <h1 class="info-title">{{ $project->name }}</h1>
+                <p>
+                    {!! $project->content !!}
                 </p>
-                <h4 class="info-heading"><strong> Địa chỉ: </strong>Biệt thự được xây dựng tại phân khu A8 Khu đô thị Xanh Villas</h4>
+                <h4 class="info-heading"><strong> Địa chỉ: </strong>{{ $project->address }}</h4>
                 <h4 class="info-heading"><strong> Khách hàng:</strong></h4>
-                <h4 class="info-heading"><strong> Danh mục: </strong>Biệt Thự</h4>
-                <button class="btn btn-primary">Công trình trước</button>
-                <button class="btn btn-primary">Công trình sau</button>
+                <h4 class="info-heading"><strong> Danh mục: </strong>{{ $project->category->name ?? '' }}</h4>
+                @if($firstId)
+                    <button class="btn btn-primary"><a href="{{ route('customer.project.detail', $firstId) }}">Công trình trước</a></button>
+                @endif
+                @if($nextId)
+                    <button class="btn btn-primary"><a href="{{ route('customer.project.detail', $nextId) }}">Công trình sau</a></button>
+                @endif
             </div>
             <div class="col-md-7">
-                <img src="{{ asset('customer/images/img-project/BT-A8-XanhVilla/IMG_20200610_111344.jpg') }}" alt="">
-                <img src="{{ asset('customer/images/img-project/BT-A8-XanhVilla/IMG_4632.JPG') }}" alt="">
-                <img src="{{ asset('customer/images/img-project/BT-A8-XanhVilla/IMG_4634.JPG') }}" alt="">
-                <img src="{{ asset('customer/images/img-project/BT-A8-XanhVilla/IMG_4636.JPG') }}" alt="">
-                <img src="{{ asset('customer/images/img-project/BT-A8-XanhVilla/IMG_4643.JPG') }}" alt="">
+                @if(!empty($project->projectImages))
+                    @foreach($project->projectImages as $projectImage)
+                <img src="{{  $projectImage->path }}" alt="">
+                    @endforeach
+                @endif
             </div>
-            <h2 style="width: 100%;padding-bottom: 30px;">Công trình khác</h2>
-            <div class="col-md-4">
-                <img src="{{ asset('customer/images/img-project/BT-97-VuonTung/97-98 Vuon Tung Eco Park.png') }}" class="image" alt="">
-                <div class="info">
-                    <div class="text">
-                        <a href="{{ route('customer.project.detail', 1) }}">
-                            <h4>Biệt thự Vườn Tùng EcoPark</h4>
-                            <p>Hà Nội</p>
-                        </a>
+            @if(!empty($listProjects))
+                <h2 style="width: 100%;padding-bottom: 30px;">Công trình khác</h2>
+
+            @foreach($listProjects as $project)
+                    <div class="col-md-4">
+                        <img src="{{ $project->image }}" class="image" alt="">
+                        <div class="info">
+                            <div class="text">
+                                <a href="{{ route('customer.project.detail', $project->id) }}">
+                                    <h4>{{ $project->name }}</h4>
+                                    <p>{{ $project->address }}</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <img src="{{ asset('customer/images/img-project/golf-TamDao/a20-1.jpg') }}" class="image" alt="">
-                <div class="info">
-                    <div class="text">
-                        <a href="{{ route('customer.project.detail', 1) }}">
-                            <h4>Khách sạn A20 Tam Đảo</h4>
-                            <p>Tam Đảo</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <img src="{{ asset('customer/images/img-project/BT-BacNinh/z3039917879059_750d76c94606631a31a7fb9d687faad6.jpg') }}" class="image" alt="">
-                <div class="info">
-                    <div class="text">
-                        <a href="{{ route('customer.project.detail', 1) }}">
-                            <h4>Biệt thự Bắc Ninh</h4>
-                            <p>Bắc Ninh</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+            @endif
         </div>
     </div>
 @endsection

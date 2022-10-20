@@ -1,16 +1,16 @@
 @extends('admin.layouts.app')
 
-@section('title', __('labels.pages.admin.product.title.edit'))
+@section('title', 'Tạo mới')
 
 @section('content')
     <div class="card">
-        <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.project.update', $project->id) }}" method="POST" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="card-body">
                 <h4 class="card-title mb-0">
-                    Quản lý sản phẩm
-                    <small class="text-muted">Chỉnh sửa</small>
+                    Quản lý dự án
+                    <small class="text-muted">Tạo mới</small>
                 </h4>
                 <hr>
                 <div class="form-group row">
@@ -20,42 +20,59 @@
                         <select name="category_id" class="form-control" id="category_id" required>
                             <option value="">-- Chọn danh mục --</option>
                             @foreach($categories as $category)
-                                <option @if($product->category_id === $category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option @if($project->category_id === $category->id) selected @endif  value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div><!--col-->
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="name">Tên sản phẩm</label>
+                    <label class="col-md-2 form-control-label" for="name">Tên</label>
 
                     <div class="col-md-10">
-                        <input class="form-control" type="text" name="name" id="name" value="{{ $product->name }}" placeholder="Nhập tên sản phẩm..." maxlength="191" required="" autofocus="">
+                        <input class="form-control" type="text" name="name" id="name" value="{{ $project->name  }}" placeholder="Nhập tên..." maxlength="191" required="" autofocus="">
                     </div><!--col-->
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="price">Giá</label>
-
-                    <div class="col-md-10">
-                        <input class="form-control" type="number" name="price" id="price" value="{{ $product->price }}" step="0.01" placeholder="Nhập giá" maxlength="191" required="" autofocus="">
-                    </div><!--col-->
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="image">Hình ảnh</label>
+                    <label class="col-md-2 form-control-label" for="image">Hình ảnh chính</label>
 
                     <div class="col-md-10">
                         <input type="file" name="image" id="image">
-                        <p class="mt-3"><img src="{{ $product->image }}" width="100" alt=""></p>
+                        <p class="mt-3"><img src="{{ $project->image }}" width="100" alt=""></p>
                     </div><!--col-->
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="description">Mô tả ngắn</label>
+                    <label class="col-md-2 form-control-label" for="images">Hình ảnh mở rộng</label>
 
                     <div class="col-md-10">
-                        <textarea class="form-control" name="description" id="description" placeholder="Nhập mô tả ngắn" rows="5">{{ $product->description }}</textarea>
+                        <input type="file" name="images[]" id="images" multiple="multiple">
+                    </div><!--col-->
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="address">Đia chỉ</label>
+
+                    <div class="col-md-10">
+                        <input class="form-control" name="address" id="address" placeholder="Nhập địa chỉ" value="{{ $project->address }}" />
+                    </div><!--col-->
+                </div>
+
+
+                <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="seo_text">SEO bài</label>
+
+                    <div class="col-md-10">
+                        <textarea class="form-control" name="seo_text" id="seo_text" placeholder="Nhập nội dung seo" rows="5">{{ $project->seo_text }}</textarea>
+                    </div><!--col-->
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="description_short">Mô tả ngắn</label>
+
+                    <div class="col-md-10">
+                        <textarea class="form-control" name="description_short" id="description_short" placeholder="Nhập mô tả ngắn" rows="5">{{ $project->description_short }}</textarea>
                     </div><!--col-->
                 </div>
 
@@ -63,26 +80,18 @@
                     <label class="col-md-2 form-control-label" for="content-text">Nôi dung</label>
 
                     <div class="col-md-10">
-                        <textarea class="form-control" name="content" id="content-text" placeholder="Nhập nội dung" rows="5">{!! $product->content !!}</textarea>
-                    </div><!--col-->
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="status">Trạng thái</label>
-
-                    <div class="col-md-10">
-                        <input type="checkbox" data-on="Show" value="1" data-off="Hidden" name="status" id="status" @if(!$product->is_disabled) checked @endif data-toggle="toggle" data-onstyle="primary">
+                        <textarea class="form-control" name="content" id="content-text" placeholder="Nội dung" rows="10">{!! $project->content !!}</textarea>
                     </div><!--col-->
                 </div>
             </div>
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <a href="{{ route('admin.product.index') }}" class="btn btn-danger btn-sm">Thoát</a>
+                        <a href="{{ route('admin.project.index') }}" class="btn btn-danger btn-sm">Thoát</a>
                     </div>
 
                     <div class="col text-right">
-                        <button type="submit" class="btn btn-success btn-sm">Cập nhật</button>
+                        <button type="submit" class="btn btn-success btn-sm">Tạo mới</button>
                     </div>
                 </div>
             </div>

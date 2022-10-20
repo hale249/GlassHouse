@@ -50,6 +50,14 @@
                 </div>
 
                 <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="address">Đia chỉ</label>
+
+                    <div class="col-md-10">
+                        <input class="form-control" name="address" id="address" placeholder="Nhập địa chỉ" />
+                    </div><!--col-->
+                </div>
+
+                <div class="form-group row">
                     <label class="col-md-2 form-control-label" for="seo_text">SEO bài</label>
 
                     <div class="col-md-10">

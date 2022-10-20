@@ -82,7 +82,7 @@ class ProjectController extends Controller
 
         $data['created_by'] = auth()->id();
         if ($request->hasFile('image')) {
-            $data['image'] = $this->uploadFile($request->file('image'), 'products');
+            $data['image'] = $this->uploadFile($request->file('image'), 'projects');
         }
 
         $images = [];
@@ -90,7 +90,7 @@ class ProjectController extends Controller
             foreach($request->file('images') as $file){
                 $images[] = [
                     'name' => $file->getClientOriginalName(),
-                    'path' => $this->uploadFile($file, 'products')
+                    'path' => $this->uploadFile($file, 'projects')
                 ];
             }
         }
@@ -98,7 +98,14 @@ class ProjectController extends Controller
             $project = Project::query()
                 ->create($data);
             if(!empty($images)) {
-                $project->projectImages()->saveMany($images);
+                foreach ($images as $image) {
+                    \App\Models\ProjectImage::query()
+                        ->updateOrCreate([
+                            'project_id' => $project->id,
+                            'name' => $image['name'],
+                            'path' => $image['path'],
+                        ]);
+                };
             }
         });
 

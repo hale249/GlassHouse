@@ -27,7 +27,21 @@ class ProjectController extends Controller
 
     public function detail($id)
     {
-        $project = Project::query()->findOrFail($id);
-        return view('customer.elements.project.detail', compact('project'));
+        $project = Project::query()->with(['projectImages', 'category'])->findOrFail($id);
+        $nextProject = Project::query()->where('id', '>', $id)-> first();
+        $firstProject = Project::query()->where('id', '<', $id)-> first();
+        $nextId = '';
+        if (!empty($nextProject)) {
+            $nextId = $nextProject->id;
+        }
+
+        $firstId = '';
+        if (!empty($firstProject)) {
+            $firstId = $firstProject->id;
+        }
+
+        $listProjects = Project::query()->where('id', '!=', $id)->limit(3)->get();
+
+        return view('customer.elements.project.detail', compact('project', 'firstId', 'nextId', 'listProjects'));
     }
 }

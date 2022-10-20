@@ -38,6 +38,7 @@
                         <thead>
                         <tr>
                             <td><strong>Tên</strong></td>
+                            <td><strong>Hình ảnh</strong></td>
                             <td><strong>Danh mục</strong></td>
                             <td><strong>Trạng thái</strong></td>
                             <td><strong>Người tạo</strong></td>
@@ -49,6 +50,7 @@
                         @foreach($projects as $project)
                             <tr>
                                 <td>{{ $project->name }}</td>
+                                <td> <img src="{{ $project->image }}" width="100"></td>
                                 <td>
                                     @if(!empty($project->category))
                                         <a href="{{ route('admin.project_category.edit', $project->category_id) }}" target="_blank">{{ $project->category->name ?? '' }}</a>

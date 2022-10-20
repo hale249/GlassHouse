@@ -37,35 +37,11 @@
             <li>
                 <a href="{{ route('customer.product.index') }}">SẢN PHẨM <i class="fa fa-angle-down"></i> </a>
                 <ul class="subnav" style="border-radius: 5px;">
-                    <li>
-                        <a href="{{ route('customer.product.detail', 1) }}">Cửa đi<i class="fa fa-angle-down"></i></a>
-                        <ul class="child-subnav">
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa đi 1 cánh</a></li>
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa đi 1 cánh và Fix</a></li>
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa đi nhiều cánh</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="{{ route('customer.product.detail', 1) }}">Cửa sổ <i class="fa fa-angle-down"></i></a>
-                        <ul class="child-subnav">
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa sổ mở hất</a></li>
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa sổ mở quay</a></li>
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa sổ mở trượt</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="{{ route('customer.product.detail', 1) }}">Cửa trượt <i class="fa fa-angle-down"></i></a>
-                        <ul class="child-subnav">
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa trượt Inowa</a></li>
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa nhấc trượt</a></li>
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa lật trượt</a></li>
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa gấp trượt</a></li>
-                            <li><a href="{{ route('customer.product.detail', 1) }}">Cửa quay trượt</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="{{ route('customer.product.detail', 1) }}">Vách kính mặt dựng</a>
-                    </li>
+                   @foreach($prọductCategories as $category)
+                        <li>
+                            <a href="{{ route('customer.product.index', ['category_id' => $category->id]) }}">{{ $category->name }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </li>
             <li><a href="#" style="color: #cf2e2e">sản phẩm ROTO <i class="fa fa-angle-down"></i></a>

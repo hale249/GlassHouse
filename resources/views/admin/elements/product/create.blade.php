@@ -62,19 +62,7 @@
                     <label class="col-md-2 form-control-label" for="images">Hình ảnh mở rộng</label>
 
                     <div class="col-md-10">
-                        <input type="file" name="images[]" id="images">
-                    </div><!--col-->
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-md-2 form-control-label" for="colors">Hình ảnh mở rộng</label>
-
-                    <div class="col-md-10">
-                        <select class="form-control color_select2_choose" name="colors[]" multiple="multiple">
-                            @foreach ($colors as $color)
-                                <option value="{{$color->id}}">{{$color->name}}</option>
-                            @endforeach
-                        </select>
+                        <input type="file" name="images[]" id="images" multiple="multiple">
                     </div><!--col-->
                 </div>
 
