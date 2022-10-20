@@ -40,6 +40,13 @@
         </a>
     </li>
 
+    <li class="nav-item @if(\Request::is('admin/contact') || \Request::is('admin/contact/*')) active @endif">
+        <a class="nav-link" href="{{ route('admin.contact.index') }}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Yêu cầu liên hệ</span>
+        </a>
+    </li>
+
     <!-- Heading -->
     <div class="sidebar-heading">
         Cấu hình

@@ -9,7 +9,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Category;
+use App\Models\Color;
+use App\Models\GlassType;
 use App\Models\Product;
+use App\Models\ProductAccessory;
+use App\Models\ProductAluminum;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
@@ -40,10 +44,6 @@ class ProductController extends Controller
             $products = $products->where('category_id', $data['category_id']);
         }
 
-        if (!auth()->user()->hasPermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_ALL_PRODUCT)) {
-            $userId = auth()->id();
-        }
-
         if (!empty($userId)) {
             $products = $products->where('user_id', $userId);
         }
@@ -63,8 +63,12 @@ class ProductController extends Controller
     public function create(): View
     {
         $categories = Category::query()->get();
+        $colors = Color::query()->get();
+        $glassTypes = GlassType::query()->get();
+        $aluminums = ProductAluminum::query()->get();
+        $accessories = ProductAccessory::query()->get();
 
-        return view('admin.elements.product.create', compact('categories'));
+        return view('admin.elements.product.create', compact(['categories', 'colors', 'glassTypes', 'aluminums', 'accessories']));
     }
 
     /**
@@ -138,8 +142,12 @@ class ProductController extends Controller
         $product = Product::query()->findOrFail($id);
         $this->authorize('update', $product);
         $categories = Category::query()->get();
+        $colors = Color::query()->get();
+        $glassTypes = GlassType::query()->get();
+        $aluminums = ProductAluminum::query()->get();
+        $accessories = ProductAccessory::query()->get();
 
-        return view('admin.elements.product.edit', compact('product', 'categories'));
+        return view('admin.elements.product.edit', compact(['product', 'categories', 'colors', 'glassTypes', 'aluminums', 'accessories']));
     }
 
     /**

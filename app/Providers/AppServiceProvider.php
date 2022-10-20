@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $proCategories = ProjectCategory::query()->get(['id', 'name']);
+//        $proCategories = ProjectCategory::query()->get(['id', 'name']);
 
         // Sharing is caring
 //        View::share('projectCategories',$proCategories);

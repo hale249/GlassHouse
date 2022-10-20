@@ -2,7 +2,13 @@
 
 namespace App\Models;
 
-class colors
-{
+use Illuminate\Database\Eloquent\Model;
 
+class Color extends Model
+{
+    protected $table = 'colors';
+
+    protected $fillable = [
+        'name', 'color', 'is_active', 'created_by'
+    ];
 }

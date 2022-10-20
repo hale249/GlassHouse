@@ -40,17 +40,17 @@ Route::get('register', 'AuthController@showFormRegister')->name('auth.show-form-
 Route::post('register', 'AuthController@register')->name('auth.register');
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
-    Route::group(['middleware' => ['permission:' . PermissionConstant::PERMISSION_VIEW_BACKEND]], function () {
-        require __DIR__ . '/admin/dashboard.php';
-        require __DIR__ . '/admin/user.php';
-        require __DIR__ . '/admin/profile.php';
-        require __DIR__ . '/admin/category.php';
-        require __DIR__ . '/admin/product.php';
-        require __DIR__ . '/admin/product-item.php';
-        require __DIR__ . '/admin/project.php';
-        require __DIR__ . '/admin/customer.php';
-        require __DIR__ . '/admin/cart.php';
-    });
+    require __DIR__ . '/admin/dashboard.php';
+    require __DIR__ . '/admin/user.php';
+    require __DIR__ . '/admin/profile.php';
+    require __DIR__ . '/admin/category.php';
+    require __DIR__ . '/admin/product.php';
+    require __DIR__ . '/admin/project.php';
+    require __DIR__ . '/admin/customer.php';
+    require __DIR__ . '/admin/cart.php';
+
+    Route::get('/contact',[\App\Http\Controllers\Admin\ContactController::class, 'index'])->name('contact.index');
+    Route::get('/contact/{id}', [\App\Http\Controllers\Admin\ContactController::class, 'show'])->name('contact.show');
 });
 
 Route::group(['namespace' => 'Customer', 'as' => 'customer.'], function () {

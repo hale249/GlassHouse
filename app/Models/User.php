@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Attributes\UserAttribute;
-use App\Models\Traits\Methods\UserMethod;
-use App\Models\Traits\Relationships\UserRelationship;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -13,7 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, HasRoles, UserAttribute, UserMethod, UserRelationship;
+    use Notifiable, SoftDeletes, HasRoles;
 
     /**
      * The attributes that are mass assignable.

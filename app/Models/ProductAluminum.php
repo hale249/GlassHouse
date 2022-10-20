@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ProductAccessory extends Model
+class ProductAluminum extends Model
 {
-    protected $table = 'product_accessories';
+    protected $table = 'product_aluminums';
 
     protected $fillable = [
-        'product_id', 'accessory_id'
+        'product_id', 'aluminum_id'
     ];
 }

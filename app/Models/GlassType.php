@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Color extends Model
+class GlassType extends Model
 {
-    protected $table = 'colors';
-    
+    protected $table = 'glass_types';
+
     protected $fillable = [
-        'name', 'color', 'is_active', 'created_by'
+        'name', 'is_active', 'created_by'
     ];
 }

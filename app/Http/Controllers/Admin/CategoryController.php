@@ -33,10 +33,6 @@ class CategoryController extends Controller
         }
 
         $userId = !empty($data['user_id']) ? $data['user_id'] : null;
-        if (!auth()->user()->hasPermissionTo(PermissionConstant::PERMISSION_VIEW_LIST_ALL_CATEGORY)) {
-            $userId = auth()->id();
-        }
-
         if (!empty($userId)) {
             $categories = $categories->where('user_id', $userId);
         }
@@ -86,12 +82,10 @@ class CategoryController extends Controller
      *
      * @param int $id
      * @return View
-     * @throws AuthorizationException
      */
     public function show($id): View
     {
         $category = Category::query()->findOrFail($id);
-        $this->authorize('view', $category);
 
         return view('admin.elements.category.show', compact('category'));
     }

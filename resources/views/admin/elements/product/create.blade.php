@@ -35,10 +35,18 @@
                 </div>
 
                 <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="quantity">Số lượng</label>
+
+                    <div class="col-md-10">
+                        <input class="form-control" type="number" step="1" name="quantity" id="quantity" value="{{ old('quantity') }}" placeholder="Nhập số lượng" maxlength="191" required="">
+                    </div><!--col-->
+                </div>
+
+                <div class="form-group row">
                     <label class="col-md-2 form-control-label" for="price">Giá</label>
 
                     <div class="col-md-10">
-                        <input class="form-control" type="number" step="0.01" name="price" id="price" value="{{ old('price') }}" placeholder="Nhập giá" maxlength="191" required="" autofocus="">
+                        <input class="form-control" type="number" step="0.01" name="price" id="price" value="{{ old('price') }}" placeholder="Nhập giá" maxlength="191" required="">
                     </div><!--col-->
                 </div>
 
@@ -55,6 +63,18 @@
 
                     <div class="col-md-10">
                         <input type="file" name="images[]" id="images">
+                    </div><!--col-->
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-2 form-control-label" for="colors">Hình ảnh mở rộng</label>
+
+                    <div class="col-md-10">
+                        <select class="form-control color_select2_choose" name="colors[]" multiple="multiple">
+                            @foreach ($colors as $color)
+                                <option value="{{$color->id}}">{{$color->name}}</option>
+                            @endforeach
+                        </select>
                     </div><!--col-->
                 </div>
 
@@ -97,4 +117,10 @@
     </div>
 @endsection
 @section('script')
+    <script>
+        $(".color_select2_choose").select2({
+            tags: true,
+            tokenSeparators: [',']
+        });
+    </script>
 @endsection

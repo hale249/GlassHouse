@@ -6,10 +6,11 @@
     <title>@yield('title')</title>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
     <!-- Styles -->
-    <link rel="stylesheet" href="/css/backend/app.css">
+    <link rel="stylesheet" href="{{ asset('/css/backend/app.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     <!-- Page Wrapper -->
@@ -54,7 +55,7 @@
     </a>
 
     @include('share.modals.logout')
-    <script src="/js/backend/app.js"></script>
+    <script src="{{ asset('js/backend/app.js') }}"></script>
     @yield('script')
 </body>
 </html>
