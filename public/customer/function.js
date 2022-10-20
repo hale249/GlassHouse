@@ -116,7 +116,7 @@ function checkinfo() {
 }
 
 
-function datatransfer() {
+function datatransfer(price = 0) {
     const elementSelectColor = document.getElementById("select-color");
     const colorValue = elementSelectColor.value || '';
     const labelColor = elementSelectColor.options[elementSelectColor.selectedIndex].innerHTML || '';
@@ -138,6 +138,13 @@ function datatransfer() {
     const txtwidth = document.getElementById('txtwidth').value || 0;
     const txtnumber = document.getElementById('txtnumber').value || 0;
 
+    document.getElementById('typeLabel').innerHTML = labelAlu;
+    document.getElementById('colorLabel').innerHTML = labelColor;
+    document.getElementById('sizeLabel').innerHTML = txtwidth;
+    document.getElementById('accessLabel').innerHTML = labelAccessories;
+    document.getElementById('glassLabel').innerHTML = labelGlass;
+    document.getElementById('tongtienLabel').innerHTML = txtnumber * price;
+
     var x = document.getElementById("form-1");
     var y = document.getElementById("form-2");
     x.style.display = "none";
@@ -145,4 +152,40 @@ function datatransfer() {
     var alu = document.getElementById('select-alu').value;
     document.getElementById('type').innerHTML = alu;
 
+}
+
+function addToCartProduct($productId) {
+    const elementSelectColor = document.getElementById("select-color");
+    const colorValue = elementSelectColor.value || '';
+    const labelColor = elementSelectColor.options[elementSelectColor.selectedIndex].innerHTML || '';
+
+    const elementSelectAlu = document.getElementById("select-alu");
+    const aluValue = elementSelectAlu.value || '';
+    const labelAlu = elementSelectAlu.options[elementSelectAlu.selectedIndex].innerHTML || '';
+
+
+    const elementAccessories = document.getElementById("select-accesfa-stack");
+    const accessoriesValue = elementAccessories.value || '';
+    const labelAccessories = elementAccessories.options[elementAccessories.selectedIndex].innerHTML || '';
+
+    const elementGlassType = document.getElementById("select-glass");
+    const glassValue = elementGlassType.value || '';
+    const labelGlass = elementGlassType.options[elementGlassType.selectedIndex].innerHTML || '';
+
+    const txtlenght = document.getElementById('txtlenght').value || 0;
+    const txtwidth = document.getElementById('txtwidth').value || 0;
+    const txtnumber = document.getElementById('txtnumber').value || 0;
+
+    /*$.ajax({
+        url: '/add-to-cart/' + $productId,
+        method: "post",
+        data: {
+            _token: '{{ csrf_token() }}',
+            id: ele.parents("tr").attr("data-id"),
+            quantity: ele.parents("tr").find(".quantity").val()
+        },
+        success: function (response) {
+            window.location.reload();
+        }
+    });*/
 }

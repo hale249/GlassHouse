@@ -62,7 +62,7 @@
                 <input type="text" placeholder="Chiều rộng" id="txtwidth">
                 <input type="number" placeholder="Số lượng" id="txtnumber" value=""><br>
                 <!-- <a href="" class="btn " onclick="datatransfer()">Xác nhận</a> -->
-                <button class="btn" onclick="datatransfer()">Xác nhận</button>
+                <button class="btn" onclick="datatransfer({{$product->price}})">Xác nhận</button>
 
             </div>
             <div class="col-2 " id="form-2">
@@ -74,60 +74,40 @@
                         <tr>
                             <td>Loại nhôm</td>
                             <td>
-                                <label for="" id="type"></label>
+                                <label for="" id="typeLabel"></label>
                             </td>
                         </tr>
                         <tr>
                             <td>Màu sắc</td>
-                            <td><label for="" id="color"></label></td>
+                            <td><label for="" id="colorLabel"></label></td>
                         </tr>
                         <tr>
                             <td>Kích thước (m2)</td>
-                            <td><label for="" id="size"></label></td>
+                            <td><label for="" id="sizeLabel"></label></td>
                         </tr>
                         <tr>
                             <td>Phụ kiện</td>
-                            <td><label for="" id="access"></label></td>
+                            <td><label for="" id="accessLabel"></label></td>
                         </tr>
                         <tr>
                             <td>Kính</td>
-                            <td> <label for="" id="glass"></label></td>
+                            <td> <label for="" id="glassLabel"></label></td>
                         </tr>
                         <tfoot>
                         <tr>
                             <td>Báo giá</td>
-                            <td><label for="baogia" id="tongtien"></label></td>
+                            <td><label for="baogia" id="tongtienLabel"></label></td>
                         </tr>
                         </tfoot>
                     </table>
                 </div>
-                <div class="button"><a class="btn" href="{{ route('customer.cart.index') }}">Thêm vào giỏ hàng</a></div>
+                <div class="button"><a class="btn" onclick="addToCartProduct({{$product->id}})">Thêm vào giỏ hàng</a></div>
             </div>
         </div>
     </div>
 
     <div class="product-detail">
-        <h3 class="title-detail">
-            Mô tả sản phẩm:
-        </h3>
-        <p class="description-detail">
-            ■ Đặc điểm chính: <br> - Phù hợp với mọi vị trí, kiến trúc <br> - Giảm trọng tải hiệu quả <br> - Không gây ảnh hưởng tới diện tích công trình <br> - Khi mở có thể mở hất góc to, nhỏ tùy ý, tối đa 45 độ<br>
-        </p>
-        <div class="image-detail">
-            <img src="{{ $product->image }}" alt="">
-        </div>
-        <h3 class="small-title-detail">
-            Một số kiểu cửa thông dụng
-        </h3>
-        <div class="image-detail">
-
-        </div>
-        <h3 class="small-title-detail">
-            Thông số kỹ thuật
-        </h3>
-        <div class="image-detail">
-
-        </div>
+       {!! $product->content !!}
     </div>
     <div class="small-container ">
         <div class="row row-2 ">
@@ -152,4 +132,3 @@
         </div>
     </div>
 @endsection
-
