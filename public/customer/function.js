@@ -181,8 +181,14 @@ function addToCartProduct($productId) {
         method: "post",
         data: {
             _token: '{{ csrf_token() }}',
-            id: ele.parents("tr").attr("data-id"),
-            quantity: ele.parents("tr").find(".quantity").val()
+            quantity: txtnumber,
+            price: txtnumber,
+            product_color_id: labelColor,
+            product_glass_id: $request->product_glass_id,
+            product_aluminum_id: $request->product_aluminum_id,
+            product_accessory_id: accessoriesValue,
+            product_longs:  $request->product_longs,
+            product_width: $request->product_width,
         },
         success: function (response) {
             window.location.reload();
