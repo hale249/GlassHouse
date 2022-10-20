@@ -9,6 +9,7 @@ use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -64,7 +65,7 @@ class UserController extends Controller
             $user->assignRole($data['role']);
         }
 
-        return redirect()->back()->with('flash_success', __('labels.pages.admin.users.messages.create_user_success'));
+        return redirect()->back()->with('flash_success', 'Tạo thành công');
     }
 
     /**
@@ -95,7 +96,7 @@ class UserController extends Controller
             $user->syncRoles([]);
         }
 
-        return redirect()->back()->with('flash_success', __('labels.pages.admin.users.messages.update_user_success'));
+        return redirect()->back()->with('flash_success', 'Cập nhật thành công');
     }
 
     public function destroy(int $id)
@@ -107,7 +108,7 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->back()->with('flash_success', __('labels.pages.admin.users.messages.delete_user_success'));
+        return redirect()->back()->with('flash_success', 'Xoá người dùng thành công');
     }
 
     public function showFormChangePassword(int $id): View
@@ -121,8 +122,9 @@ class UserController extends Controller
     {
         $password = $request->input('password');
         $user = User::query()->findOrFail($id);
+        $password = Hash::make($password);
         $user->update(['password' => $password]);
 
-        return redirect()->back()->with('flash_success', __('labels.pages.admin.users.messages.change_password_user_success'));
+        return redirect()->back()->with('flash_success', 'Cập nhật mật khẩu thành công');
     }
 }

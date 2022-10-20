@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Helpers\Constant;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserChangePasswordRequest;
 use App\Models\Customer;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class CustomerController extends Controller
@@ -33,4 +34,49 @@ class CustomerController extends Controller
         return view('admin.elements.customer.index', compact('customers'));
     }
 
+    /**
+     * Show form edit user
+     *
+     * @param int $id
+     * @return View
+     */
+    public function edit(int $id): View
+    {
+        $customer = Customer::query()->findOrFail($id);
+
+        return view('admin.elements.customer.edit', compact('customer'));
+    }
+
+    public function update(Request $request, int $id)
+    {
+        $data = $request->only([
+            'name',
+            'email',
+            'phone_number',
+            'address'
+        ]);
+
+        $customer = Customer::query()->findOrFail($id);
+        $customer->update($data);
+
+        return redirect()->back()->with('flash_success', 'Cập nhật khách hàng thành công');
+    }
+
+
+    public function showFormChangePassword(int $id): View
+    {
+        $customer = Customer::query()->findOrFail($id);
+
+        return view('admin.elements.customer.change_password', compact('customer'));
+    }
+
+    public function changePassword(UserChangePasswordRequest $request, int $id)
+    {
+        $password = $request->input('password');
+        $customer = Customer::query()->findOrFail($id);
+        $password = Hash::make($password);
+        $customer->update(['password' => $password]);
+
+        return redirect()->back()->with('flash_success', 'Cập nhật mật khẩu thành công');
+    }
 }

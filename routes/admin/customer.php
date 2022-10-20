@@ -21,12 +21,6 @@ Route::put('customers/{id}', 'CustomerController@update')
     ->name('customer.update');
 
 /**
- * @see \App\Http\Controllers\Admin\CustomerController::destroy()
- */
-Route::delete('customers/{id}', 'CustomerController@destroy')
-    ->name('customer.destroy');
-
-/**
  * @see \App\Http\Controllers\Admin\CustomerController::showFormChangePassword()
  */
 Route::get('customers/{id}/change-password', 'CustomerController@showFormChangePassword')

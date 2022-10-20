@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -13,16 +14,14 @@ class ProjectController extends Controller
     {
         $categoryId = $request->get('category_id');
         $project = Project::query()->where('is_active', true);
-
         if (!empty($categoryId)) {
-            $category = Category::query()->find($categoryId);
+            $category = ProjectCategory::query()->find($categoryId);
             if (!empty($category)) {
                 $project = $project->where('category_id', $categoryId);
             }
         }
 
         $project = $project->get();
-        dd($project);
         return view('customer.elements.project.index', compact('project'));
     }
 

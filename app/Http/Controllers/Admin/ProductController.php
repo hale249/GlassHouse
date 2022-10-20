@@ -101,15 +101,57 @@ class ProductController extends Controller
             }
         }
 
+        //insert color
+        $colorIds = [];
+        if (!empty($data['colors'])) {
+            foreach ($data['colors'] as $color) {
+                $colorInstance = Color::query()->firstOrCreate(['name' => $color]);
+                $colorIds[] = $colorInstance->id;
+            }
+        }
+
+        //insert glass type
+        $glassTypeIds = [];
+        if (!empty($data['glass_types'])) {
+            foreach ($data['glass_types'] as $type) {
+                $instance = GlassType::query()->firstOrCreate(['name' => $type]);
+                $glassTypeIds[] = $instance->id;
+            }
+        }
+
+        //insert glass type
+        $aluminumIds = [];
+        if (!empty($data['aluminums'])) {
+            foreach ($data['aluminums'] as $item) {
+                //insert tags
+                $instance = ProductAluminum::query()->firstOrCreate(['name' => $item]);
+                $aluminumIds[] = $instance->id;
+            }
+        }
+
+        //insert glass type
+        $accessoriesIds = [];
+        if (!empty($data['aluminums'])) {
+            foreach ($data['aluminums'] as $item) {
+                //insert tags
+                $instance = ProductAccessory::query()->firstOrCreate(['name' => $item]);
+                $accessoriesIds[] = $instance->id;
+            }
+        }
         $data['user_id'] = auth()->id();
 //        $data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
-        DB::transaction(function () use ($data, $images) {
+        DB::transaction(function () use ($data, $images, $accessoriesIds, $aluminumIds, $glassTypeIds, $colorIds) {
             $product = Product::query()
                 ->create($data);
 
             if(!empty($images)) {
                 $product->productImages()->create($images);
             }
+
+            $product->productColors()->attach($colorIds);
+            $product->productAccessories()->attach($accessoriesIds);
+            $product->productAluminums()->attach($aluminumIds);
+            $product->productGlass()->attach($glassTypeIds);
         });
 
 
@@ -155,7 +197,6 @@ class ProductController extends Controller
      * @param ProductUpdateRequest $request
      * @param $id
      * @return RedirectResponse
-     * @throws AuthorizationException
      */
     public function update(ProductUpdateRequest $request, $id): RedirectResponse
     {
@@ -167,14 +208,58 @@ class ProductController extends Controller
             'category_id'
         ]);
 
+        //insert color
+        $colorIds = [];
+        if (!empty($data['colors'])) {
+            foreach ($data['colors'] as $color) {
+                $colorInstance = Color::query()->firstOrCreate(['name' => $color]);
+                $colorIds[] = $colorInstance->id;
+            }
+        }
+
+        //insert glass type
+        $glassTypeIds = [];
+        if (!empty($data['glass_types'])) {
+            foreach ($data['glass_types'] as $type) {
+                $instance = GlassType::query()->firstOrCreate(['name' => $type]);
+                $glassTypeIds[] = $instance->id;
+            }
+        }
+
+        //insert glass type
+        $aluminumIds = [];
+        if (!empty($data['aluminums'])) {
+            foreach ($data['aluminums'] as $item) {
+                //insert tags
+                $instance = ProductAluminum::query()->firstOrCreate(['name' => $item]);
+                $aluminumIds[] = $instance->id;
+            }
+        }
+
+        //insert glass type
+        $accessoriesIds = [];
+        if (!empty($data['aluminums'])) {
+            foreach ($data['aluminums'] as $item) {
+                //insert tags
+                $instance = ProductAccessory::query()->firstOrCreate(['name' => $item]);
+                $accessoriesIds[] = $instance->id;
+            }
+        }
+
         $product = Product::query()->findOrFail($id);
-        $this->authorize('update', $product);
         if ($request->hasFile('image')) {
             $data['image'] = $this->uploadFile($request->file('image'), 'products');
         }
 
         //$data['is_disabled'] = (!empty($request->input('status'))) ? false : true;
+    DB::transaction(function () use ($product, $data, $colorIds, $accessoriesIds, $aluminumIds, $glassTypeIds) {
         $product->update($data);
+
+        $product->productColors()->sync($colorIds);
+        $product->productAccessories()->sync($accessoriesIds);
+        $product->productAluminums()->sync($aluminumIds);
+        $product->productGlass()->sync($glassTypeIds);
+    });
 
         return redirect()->route('admin.product.index')->with('flash_success', 'Cập nhật sản phẩm thành công');
     }
@@ -184,14 +269,18 @@ class ProductController extends Controller
      *
      * @param int $id
      * @return RedirectResponse
-     * @throws AuthorizationException
      * @throws Exception
      */
     public function destroy($id): RedirectResponse
     {
         $product = Product::query()->findOrFail($id);
-        $this->authorize('delete', $product);
-        $product->delete();
+        DB::transaction(function () use($product) {
+            $product->productColors()->delete();
+            $product->productAccessories()->delete();
+            $product->productAluminums()->delete();
+            $product->productGlass()->delete();
+            $product->delete();
+        });
 
         return redirect()->route('admin.product.index')->with('flash_success', 'Xoá sản phẩm thành công');
     }
