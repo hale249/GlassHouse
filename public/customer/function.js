@@ -117,10 +117,16 @@ function checkinfo() {
 
 
 function datatransfer() {
+    const elementSelectColor = document.getElementById("select-color");
+    const colorValue = elementSelectColor.value || '';
+    const labelColor = elementSelectColor.options[elementSelectColor.selectedIndex].innerHTML || '';
+    debugger;
+    debugger;
     var x = document.getElementById("form-1");
     var y = document.getElementById("form-2");
     x.style.display = "none";
     y.style.display = "block"
     var alu = document.getElementById('select-alu').value;
     document.getElementById('type').innerHTML = alu;
+
 }
