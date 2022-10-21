@@ -106,75 +106,81 @@
             <label class="product-line-price ">Tổng tiền</label>
         </div>
 
-        <div class="product ">
-            <div class="product-image ">
-                <img src="{{ asset('customer/images/img-product/CDMC/CDMC-MatCat-2.jpg') }}">
-            </div>
-            <div class="product-details ">
-                <div class="product-title ">Cửa đi một cánh</div>
-                <p class="product-description product-content ">Phiên bản ngắt nhiệt của FN52W và FN52D nhằm nâng cao hiệu suất cách nhiệt với giá trị U là 2,4W / m2-K.</p>
-            </div>
-            <div class="product-type ">
-                <div class="product-title ">Loại nhôm: <strong>Xingfa</strong></div>
-                <p class="product-description ">Màu sắc: <strong>Ghi Xám</strong></p>
-                <p class="product-description ">Phụ kiện: <strong>Kinlong</strong></p>
-                <p class="product-description ">Loại kính: <strong>Kính dán</strong></p>
-            </div>
-            <div class="product-price "></div>
-            <div class="product-quantity center-input ">
-                <p class="product-description product-number ">2</p>
-            </div>
-            <div class="product-line-price ">100.000</div>
-            <div class="product-line-price ">100.000</div>
-        </div>
 
-        <div class="product ">
-            <div class="product-image ">
-                <img src="{{ asset('customer/images/img-product/CDMC-Fix/img-CDMC-Fix-1.jpg') }}">
-            </div>
-            <div class="product-details ">
-                <div class="product-title ">Cửa đi một cánh kèm Fix</div>
-                <p class="product-description product-content ">Phiên bản ngắt nhiệt của FN52W và FN52D nhằm nâng cao hiệu suất cách nhiệt với giá trị U là 2,4W / m2-K.</p>
-            </div>
-            <div class="product-type ">
-                <div class="product-title ">Loại nhôm: <strong>Xingfa</strong></div>
-                <p class="product-description ">Màu sắc: <strong>Ghi Xám</strong></p>
-                <p class="product-description ">Phụ kiện: <strong>Kinlong</strong></p>
-                <p class="product-description ">Loại kính: <strong>Kính dán</strong></p>
-            </div>
-            <div class="product-price "></div>
-            <div class="product-quantity center-input ">
-                <p class="product-description product-number ">1</p>
-            </div>
-            <div class="product-line-price ">100.000</div>
-            <div class="product-line-price ">100.000</div>
-        </div>
+        @php $total = 0 @endphp
+        @if(session('cart'))
+            @foreach(session('cart') as $productIdKey=>$detail)
+                @php $total += ($detail['price'] ?? 0) * ($detail['quantity']?? 1) @endphp
+                <div class="product">
+                    <div class="product-image">
+                        <img src="{{ $detail['image'] }}">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title">{{ $detail['name'] ?? '' }}</div>
+                        <p class="product-description product-content">{{ $detail['description_short'] ?? '' }}</p>
+                    </div>
+                    <div class="product-type ">
+                        <div class="product-title ">Loại nhôm: <strong> {{ $detail['aluminum'] ?? '' }}</strong></div>
+                        <p class="product-description ">Màu sắc: <strong>{{ $detail['color_name'] ?? '' }}</strong></p>
+                        <p class="product-description ">Phụ kiện: <strong>{{ $detail['accessory'] ?? '' }}</strong></p>
+                        <p class="product-description ">Loại kính: <strong>{{ $detail['glass_type'] ?? '' }}</strong></p>
+                    </div>
+                    <div class="product-price">{{ $detail['price'] ?? 0 }}</div>
+                    <div class="product-quantity center-input ">
+                        <input type="number" value="{{ $detail['quantity'] ?? 1 }}" min="1">
+                    </div>
+                    <div class="product-line-price price">{{ $detail['total'] ?? 0 }}</div>
+                </div>
+            @endforeach
+        @else
+            Giỏ hàng trống
+        @endif
 
         <div class="totals ">
             <div class="totals-item ">
                 <label>Thuế (10%)</label>
-                <div class="totals-value " id="cart-tax ">20.000</div>
+                <div class="totals-value " id="cart-tax ">
+                    @if(!empty(session('cart')))
+                        {{ $total / 10 }}
+                    @else
+                        0
+                    @endif
+                </div>
             </div>
             <div class="totals-item ">
                 <label>Vận chuyển</label>
-                <div class="totals-value " id="cart-shipping ">100.000</div>
+                <div class="totals-value " id="cart-shipping ">
+                    @if(!empty(session('cart')))
+                        100000
+                    @else
+                        0
+                    @endif
+                </div>
             </div>
             <div class="totals-item totals-item-total ">
                 <label>Tổng tiền</label>
-                <div class="totals-value " id="cart-total ">320.000</div>
+                <div class="totals-value " id="cart-total ">
+                    @if(!empty(session('cart')))
+                        {{  $total  +  $total / 10 + 100000 }}
+                    @else
+                        0
+                    @endif
+                </div>
             </div>
         </div>
         <div class="choose-banking ">
 
         </div>
+        @if(!empty(session('cart')))
         <button class="checkout "><a href="{{ route('customer.payment.success') }}">Thanh Toán</a></button>
+        @endif
     </div>
     <div id="back-to-index">
         <div class="payment-content ">
             <img src="{{ asset('customer/images/tick-xanh.png') }}" alt=" ">
             <h1>Cảm ơn bạn đã thanh toán</h1>
             <h3 style="padding-bottom: 30px; ">Sau 5 giây hệ thống sẽ tự động trở về trang chủ</h3>
-            <button class="btn btn-primary " style="margin-bottom:30px " onclick="window.location='index.html' ">Trở về trang chủ</button>
+            <button class="btn btn-primary " style="margin-bottom:30px " ><a href="{{ route('customer.home.index') }}">Trở về trang chủ</a></button>
         </div>
     </div>
 @endsection

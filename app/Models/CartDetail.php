@@ -9,7 +9,24 @@ class CartDetail extends Model
 {
     protected $table = 'cart_details';
 
-    protected $guarded = [];
+    protected $fillable = [
+        'cart_id',
+        'product_id',
+        'product_image_id',
+        'quantity',
+        'product_color_id',
+        'product_glass_id',
+        'product_aluminum_id',
+        'product_accessory_id',
+        'product_longs',
+        'product_width',
+        'price',
+    ];
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class, 'cart_id', 'id');
+    }
 
     public function product(): BelongsTo
     {

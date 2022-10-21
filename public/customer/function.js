@@ -176,22 +176,39 @@ function addToCartProduct($productId) {
     const txtwidth = document.getElementById('txtwidth').value || 0;
     const txtnumber = document.getElementById('txtnumber').value || 0;
 
-    /*$.ajax({
-        url: '/add-to-cart/' + $productId,
-        method: "post",
-        data: {
-            _token: '{{ csrf_token() }}',
-            quantity: txtnumber,
-            price: txtnumber,
-            product_color_id: labelColor,
-            product_glass_id: $request->product_glass_id,
-            product_aluminum_id: $request->product_aluminum_id,
-            product_accessory_id: accessoriesValue,
-            product_longs:  $request->product_longs,
-            product_width: $request->product_width,
-        },
-        success: function (response) {
+    const dataCart = {
+        quantity: txtnumber,
+        price: txtnumber,
+        product_color_id: colorValue,
+        product_glass_id: glassValue,
+        product_aluminum_id: aluValue,
+        product_accessory_id: accessoriesValue,
+        product_longs:  txtlenght,
+        product_width: txtwidth,
+        color_name: labelColor,
+        glass_type: labelGlass,
+        accessory: labelAccessories,
+        aluminum: labelAlu,
+    };
+
+    const params = new URLSearchParams(dataCart);
+    fetch(`/add-to-cart/${$productId}?${params}`)
+        .then((data) => {
+            window.location.href="/gio-hang";
+        })
+        .catch((error) => {
+            console.error('Error:', error);
             window.location.reload();
-        }
-    });*/
+        });
+}
+
+function deleteToCartProduct($productId) {
+    fetch(`/remove-from-cart/${$productId}`)
+        .then((data) => {
+            window.location.reload();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            window.location.reload();
+        });
 }

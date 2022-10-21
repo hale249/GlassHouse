@@ -9,7 +9,14 @@ class Cart extends Model
 {
     protected $table = 'carts';
 
-    protected $guarded = [];
+    protected $fillable = [
+        'client_id',
+        'status',
+        'vat',
+        'ship_price',
+        'total',
+        'note',
+    ];
 
     protected function cartDetails(): HasMany
     {

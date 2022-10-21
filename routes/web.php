@@ -70,8 +70,8 @@ Route::group(['namespace' => 'Customer', 'as' => 'customer.'], function () {
     Route::get('/gio-hang', [\App\Http\Controllers\Customer\CartController::class, 'index'])->name('cart.index');
 
     Route::get('add-to-cart/{id}', [\App\Http\Controllers\Customer\CartController::class, 'addToCart'])->name('add.to.cart');
-    Route::patch('update-cart', [\App\Http\Controllers\Customer\CartController::class, 'update'])->name('update.cart');
-    Route::delete('remove-from-cart', [\App\Http\Controllers\Customer\CartController::class, 'remove'])->name('remove.from.cart');
+    Route::get('update-cart/{id}', [\App\Http\Controllers\Customer\CartController::class, 'update'])->name('update.cart');
+    Route::get('remove-from-cart/{id}', [\App\Http\Controllers\Customer\CartController::class, 'remove'])->name('remove.from.cart');
 
     Route::get('/dang-nhap', [\App\Http\Controllers\Customer\AuthController::class, 'formLogin'])->name('formLogin');
 

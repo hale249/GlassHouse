@@ -47,16 +47,16 @@
                             <td><strong>Loại kính</strong></td>
                             <td><strong>Chiều dài</strong></td>
                             <td><strong>Chiều rộng</strong></td>
-                            <td><strong>Số lượng</strong></td>
                             <td><strong>Giá tiền</strong></td>
                         </tr>
                         </thead>
                         <tbody>
+                        @if(!empty($cartDetails))
                         @foreach($cartDetails as $detail)
                             <tr>
-                                <td>{{ $detail->name }}</td>
+                                <td>{{ $detail->product->name ?? '' }}</td>
                                 <td>
-                                    <img src="{{ $detail->image }}" width="100">
+                                    <img src="{{ $detail->product->image ?? '' }}" width="100">
                                 </td>
                                     <td>{{ $detail->quantity }}</td>
                                 <td>{{ $detail->color->name ?? '' }}</td>
@@ -68,6 +68,9 @@
                                 <td>{{ $detail->price }}</td>
                             </tr>
                         @endforeach
+                        @else
+                            Không có thông tin đơn hàng
+                        @endif
                         </tbody>
                     </table>
                 </div>
@@ -76,12 +79,12 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col">
-                    <a href="{{ route('admin.category.index') }}" class="btn btn-success btn-sm">Thoát</a>
+                    <a href="{{ route('admin.cart.index') }}" class="btn btn-success btn-sm">Thoát</a>
                 </div>
 
-                <div class="col text-right">
+                {{--<div class="col text-right">
                     <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-primary btn-sm">Chỉnh sửa</a>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>
