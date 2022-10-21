@@ -36,12 +36,6 @@
                                     <div class="btn-group btn-group-sm" role="group" aria-label="Hanh dong">
                                         <a href="{{ route('admin.customer.edit', $customer->id) }}" data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
                                         <a href="{{ route('admin.customer.show_form_change_password', $customer->id) }}" data-toggle="tooltip" data-placement="top" title="Change Password" class="btn btn-warning btn-sm text-white"><i class="fas fa-unlock"></i></a>
-                                        <a href="{{ route('admin.customer.destroy', $customer->id) }}"
-                                           data-trans-button-cancel="Thoát"
-                                           data-trans-button-confirm="Xoá"
-                                           data-trans-title="Xoá khách hàng"
-                                           class="btn btn-danger js-confirm-delete btn-sm"><i class="fas fa-trash"></i></a>
-
                                     </div>
                                 </td>
                             </tr>
