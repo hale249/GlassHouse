@@ -65,7 +65,10 @@
             <li><a href="{{ route('customer.contact.index') }} ">LIÊN HỆ</a></li>
 {{--            <li><a href="hiring.html ">tuyển dụng</a></li>--}}
             <li>
-                <a href="{{ route('customer.cart.index') }}" class="button-cart"><i class="fa fa-shopping-cart " style="font-size: 16px; "></i></a>
+                <a href="{{ route('customer.cart.index') }}" class="button-cart"><i class="fa fa-shopping-cart " style="font-size: 16px; "></i>
+                @if(!empty(session('cart')))
+                    {{ count(session('cart')) }}@endif
+                </a>
             </li>
             <li>
                 <a href="{{ route('customer.formLogin') }}"><i class="fa fa-user"></i></a>

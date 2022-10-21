@@ -27,7 +27,7 @@
                         <tr>
                             <td><strong>Tên khách hàng</strong></td>
                             <td><strong>Số điện thoại</strong></td>
-                            <td><strong>Số lượng</strong></td>
+{{--                            <td><strong>Số lượng</strong></td>--}}
                             <td><strong>Tổng tiền</strong></td>
                             <td><strong>Trạng thái</strong></td>
                             <td><strong>Tạo lúc</strong></td>
@@ -41,7 +41,7 @@
                                 <td>
                                     {{ $cart->customer->phone_number ?? '' }}
                                 </td>
-                                <td>{{ $cart->quantity ?? 1 }}</td>
+{{--                                <td>{{ $cart->quantity ?? 1 }}</td>--}}
                                 <td>{{ $cart->total }}</td>
                                 <td>{{ $cart->status }}</td>
                                 <td>{{ $cart->created_at }}</td>
