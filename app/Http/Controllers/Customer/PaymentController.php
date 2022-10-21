@@ -78,6 +78,10 @@ class PaymentController extends Controller
             return view('customer.elements.payment.index');
         }
 
+        foreach ($cart as $keyId=>$item) {
+            unset($cart[$keyId]);
+        }
+
         return view('customer.elements.payment.success');
     }
 }
